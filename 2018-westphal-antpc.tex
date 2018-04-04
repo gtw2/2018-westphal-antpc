@@ -102,7 +102,7 @@ As shown by Table I, the addition of vacuum pressure to the system improves remo
 
 If the facility is limited below 700$^{\circ}$C in the case of iron equipment, the efficiency is significantly hindered. In these advanced processes multiple cathodes are placed surrounding an agitating central anode. Cathode arrangement and anode rotation speed also affect the collection of uranium dendrites. Uneven, or sub-optimal, placement of cathodes result in an uneven electric field for electrolysis and lower efficiency while a high rotation speed causes remixing \cite{lee_advanced_nodate}.
 
-Inert electrodes require various voltages depending on material choice \cite{koyama_development_2012}
+Inert electrodes require various voltages depending on material choice further impacting separation efficiency based on design choice \cite{koyama_development_2012}. Voltages vary depending density and chemical composition depending on porosity and interaction with LiCl-KCl. The use of a porous anode shroud improves mobility of O$^{2-}$ ions for oxidization leads to faster separation at the cost of approximately double the current depending on mesh size \cite{choi_electrochemical_2015}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method: Proposed Algorithms}
 Prior methodology explored by Hou et al. and Yilmaz et al. \cite{Hou_2016,Yilmaz_2016} consist of minimum relative entropy based model and Poisson distribution respectively. Both methods are based on similar observables for the LWR fuel cycle. Enrichment facilities often have set production speeds for various enrichment levels and standard shipping options. These production speeds are monitored via IAEA inspection of waste activity or by monitoring facility power draw and smoke production. What becomes increasingly difficult is a minute increase in production that could be lost in the electrical noise of running an institution. For cases such as this where small diversions take place over an elongated period of time a fuel cycle simulation is beneficial. A nodal array of facilities and their known transport methods between each other is established and shipment times for various enrichment levels and shipping options are observed for irregularities. 
@@ -123,14 +123,7 @@ This model requires approximately 150 observed time steps to attain similar fals
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
-The above sections outline the types of numerical experiments that will be 
-implemented to test the non-optimizing prediction algorithm for the 
-Demand-Driven \Cycamore Archetype project. Implementation of these and further 
-tests will ensure the reliability of the prediction algorithms.  
-At present, iterative feedback between the testing team at the University of 
-Illinois and the archetype development team at the University of South Carolina 
-is driving targeted development of the non-optimizing agent archetype so that 
-it will successfully pass the tests. 
+The above demonstrates the variability in commercialized pyroprocessing facilities and potential signatures and observables that will aid diversion detection. \Cyclus also is outlined as tool in detecting shadow fuel cycles through its agent-based simulation and modular facilities, allowing for variations in plant design. Modeling and data collection of shadow fuel cycles will be performed in the \Cyclus environment after creation of a library specific to the unique needs of electrochemical refinement. Data from these simulations will be utilized in a minimum relative entropy model with additional signatures and observables to ideally reduce detection delay while maintaining high accuracy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Acknowledgments}
