@@ -58,7 +58,7 @@ Recoverable waste from reduction is fed into an anode basket suspended in a grap
 The molten salt contains TRUs from electrorefining and are separated through electrowinning with trace uranium quantities. The mixture is placed on a solid cathode along with chlorine gas at a graphite anode. With a temperature of 500$^{\circ}$C there is approximately 99 wt\% reduction in actinides and lanthanides. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method: \Cyclus Simulation}
-The separations facility provided by the \Cycamore library expansion is used as an initial model of a simple PRIDE facility. The separations archetype allows for the declaration of a feed stream and requires the user-definition of facility efficiencies. Each waste stream requires a material balance determined from the processes mentioned previously. The main waste streams found are metallic waste, ceramic waste from electrowinning and electroreduction, and vitrified waste. Vitrified waste contains the majority of TRUs, Sr, and rare-earth elements. The efficiencies of each stream and their isotopes are determined through theoretical material balance determined by \cite{flowsheet_1998}. The simple simulation was run to verify the table of efficiencies input to \Cyclus.
+The separations facility provided by the \Cycamore library expansion is used as an initial model of a simple PRIDE facility. The separations archetype allows for the declaration of a feed stream and requires the user-definition of facility efficiencies. Each waste stream requires a material balance determined from the processes mentioned previously. The main waste streams found are metallic waste, ceramic waste from electrowinning and electroreduction, and vitrified waste. Vitrified waste contains the majority of TRUs, Sr, and rare-earth elements. The efficiencies of each stream and their isotopes are determined through theoretical material balance determined by the NEA and Hermann et al\cite{flowsheet_1998,herrmann_separation_2010}. The simple simulation was run to verify the table of efficiencies input to \Cyclus.
 
 Pyroprocessing, however, is not identical to a separations facility and requires a separate library, or archetype. The goal for this archetype is to include the variations possible in facility configuration and their respective effects on the efficiency table. Efficiencies also vary according to the feed stream resulting in different waste streams for LWR and FR fuels, for example. Multiple material choices exist for anodes and cathodes as well as other design choices that need to be taken into account. 
 
@@ -102,31 +102,10 @@ As shown by Table I, the addition of vacuum pressure to the system improves remo
 
 If the facility is limited below 700$^{\circ}$C in the case of iron equipment, the efficiency is significantly hindered. In these advanced processes multiple cathodes are placed surrounding an agitating central anode. Cathode arrangement and anode rotation speed also affect the collection of uranium dendrites. Uneven, or sub-optimal, placement of cathodes result in an uneven electric field for electrolysis and lower efficiency while a high rotation speed causes remixing \cite{lee_advanced_nodate}.
 
-Inert electrodes require various voltages depending on material choice 
+Inert electrodes require various voltages depending on material choice \cite{koyama_development_2012}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method: Proposed Algorithms}
-In Best Practices of Scientific computing \cite{wilson_best_2014}, Wilson et 
-al. highlights the fact that similar to building experimental apparatus, 
-constructing software requires careful building and validation to ensure their 
-reliability. Furthermore, Wilson et al discusses that because software is 
-commonly reused, it can result in a negative long term effect on the integrity 
-of the group's work if a bug is not found. 
-
-An important practice for verification and maintenance of code is to write and 
-run tests. Automated tests ensure that a piece of code 
-is functioning the way it is intended. The most basic test is the unit test 
-which refers to the testing of a single function \cite{wilson_best_2014}. For 
-the demand-driven deployment algorithms, unit tests will be written for each 
-section of code to ensure all components of the code are reliable. Testing may 
-not be perfect at capturing all the bugs; however, it minimizes them. 
-
-The goal is for the demand-driven deployment algorithms to be integrated with 
-the \Cyclus framework in the long term and used to optimize simulations of 
-transition analyses. Therefore, if the algorithms are not well tested, they may 
-have undiagnosed logic flaws or bugs. This would result in inaccuracies with 
-the conclusions drawn from the transition analyses simulations and further 
-compromise any experiments that use the algorithm in the future 
-\cite{wilson_best_2014}.    
+Prior methodology explored by Hou et al. and Yilmaz et al. \cite{Hou_2016,Yilmaz_2016} consist of minimum relative entropy based model and Poisson distribution respectively. Both methods are based on similar observables for the LWR fuel cycle. Enrichment facilities often have set production speeds for various enrichment levels and standard shipping options. These production speeds are monitored via IAEA inspection of waste activity or by monitoring facility power draw and smoke production. What becomes increasingly difficult is a minute increase in production that could be lost in the electrical noise of running an institution. For cases such as this where small diversions take place over an elongated period of time a fuel cycle simulation is beneficial. A nodal array of facilities and their known transport methods between each other is established and shipment times for various enrichment levels and shipping options are observed for irregularities. 
 
 \begin{figure}[ht] % replace 't' with 'b' to force it to be on the bottom
 	\centering
@@ -134,6 +113,13 @@ compromise any experiments that use the algorithm in the future
 	\caption{An array of facilities with shadow interactions proposed by Hou et al\cite{Hou_2016}}
 	\label{fig:maximumlikelihood}
 \end{figure}
+
+The method proposed by Yilmaz et al. assumes 3 fuel enrichments and two shipment speeds for simplicity. Data are collected to establish a Poisson distribution of expected delivery time. The algorithm requires a training set of approximately 10 shipments before false positive rate is minimized \cite{Yilmaz_2016}. The benefit of this method is an increased response time without sacrificing as much accuracy as traditional cumulative sum methods. 
+
+Scenarios without direct access to fuel orders require indirect observation by tracking the edges of a fuel cycle network. Increasing the number of known 'edges', or transportation routes, increase the algorithm speed with the only requirement of monitoring the intake and output of facilities rather than each shipment. Figure 1 demonstrates a partially observed network to which a hybrid minimum relative entropy model is applied. This technique results in a more lenient input compared to a maximum likelihood estimation which requires a majority of the network to be observed \cite{Hou_2016}.
+
+
+This model requires approximately 150 observed time steps to attain similar false positive rates to a Poisson distribution, however, requires substantially less direct information. While the algorithm performs well over time in obscured fuel cycles, timely detection is required to prevent proliferation. The proposed algorithm seeks to adapt and include signatures and observables from pyroprocessing facilities, providing additional edges and information to a minimum relative entropy model. The algorithm should provide a compromise of the two detection methods for a new molten salt reprocessing cycle.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
