@@ -126,16 +126,14 @@ Prior methodology explored by Hou et al. and Yilmaz et al. \cite{Hou_2016,Yilmaz
 \begin{figure}[ht] % replace 't' with 'b' to force it to be on the bottom
 	\centering
 	\includegraphics[width=0.35\textwidth]{Hou_Network}
-	\caption{An array of facilities with shadow interactions proposed by Hou et al\cite{Hou_2016}.}
+	\caption{Shadow transactions acting on a facility array by Hou et al\cite{Hou_2016}.}
 	\label{fig:maximumlikelihood}
 \end{figure}
 
-The method proposed by Yilmaz et al. assumes 3 fuel enrichments and two shipment speeds for simplicity. Data are collected to establish a Poisson distribution of expected delivery time. The algorithm requires a training set of approximately 10 shipments before false positive rate is minimized \cite{Yilmaz_2016}. The benefit of this method is an increased response time without sacrificing as much accuracy as traditional cumulative sum methods. 
 
 Scenarios without direct access to fuel orders require indirect observation by tracking the edges of a fuel cycle network. Increasing the number of known 'edges', or transportation routes, increases the algorithm speed with the only requirement of monitoring the intake and output of facilities rather than each shipment. Figure 2 demonstrates a partially observed network to which a hybrid minimum relative entropy model is applied. This technique results in a more lenient input compared to a maximum likelihood estimation that requires a majority of the network to be observed \cite{Hou_2016}.
 
 
-This model requires approximately 150 observed time steps to attain similar false positive rates to a Poisson distribution, however, requires substantially less direct information. While the algorithm performs well over time in obscured fuel cycles, timely detection is required to prevent proliferation. The proposed algorithm seeks to adapt and include signatures and observables from pyroprocessing facilities, providing additional edges and information to a minimum relative entropy model. The algorithm should provide a compromise of the two detection methods for a new molten salt reprocessing cycle.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
