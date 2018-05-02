@@ -1,6 +1,6 @@
 \documentclass{anstrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{PyRe: A Cyclus Pyroprocessing Repository}
+\title{PyRe: A Cyclus Pyroprocessing Facility Archetype}
 \author{\textbf{Gregory T. Westphal} and Kathryn D. Huff}
 
 \institute{
@@ -32,8 +32,13 @@ gtw2@illinois.edu
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Abstract}
-Pyroprocessing does not yet have methods to quantify safeguardability of its waste streams \cite{Borrelli_2017}. This work assesses system parameters that influence separation efficiency and throughput to generate a model of various facility designs. Implementing a generic model allows simulations to determine priority locations for detectors and inspection for the timely notification of material diversion. A material flowsheet is created to reflect the planned facility model along with parameters and waste quantities of interest. To analyze data retrieved from the model, a minimum relative entropy model is proposed and simulations discussed.
+\begin{abstract}
+Pyroprocessing does not yet have methods to quantify safeguardability of its waste streams. 
+This work assesses system parameters that influence separation efficiency and throughput to customizable pyroprocessing facility archetype for use with the Cyclus framework.
+A generic facility model allows simulations to inform priority locations for detectors and inspection for the timely notification of material diversion. 
+This paper describes the Pyre facility archetype design, pyroprocessing flowsheets captured by the model, and simulation capabilities it enables. 
+To analyze data retrieved from the model, a minimum relative entropy model is proposed and simulations discussed.
+\end{abstract}
 \section{Introduction}
 The diversion of significant quantities of special nuclear material from the nuclear fuel cycle is major non-proliferation concern \cite{noauthor_iaea_2017}. These diversions must be detected in a timely manner using signatures and observables in order to properly safegaurd the fuel cycle. Pyroprocessing is a used nuclear fuel separations technology capable of both converting current generation waste into sodium fast reactor fuel, and reprocessing next generation molten salt fuel types. With a new reprocessing technology comes new signatures and observables which in turn necessitate new diversion detection methods. The goal of this research is to identify potential signs of material diversion in a pyroprocessing facility and implement models of these processes into a detailed pyroprocessing facility archetype to the modular, agent-based, fuel cycle simulator, \Cyclus \cite{huff_fundamental_2016}. This facility archetype will equip users of the \Cyclus fuel cycle simulator to investigate the detection timeliness enabled by novel signatures and observables in various fuel cycle scenarios.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,7 +73,7 @@ Recoverable waste from reduction is fed into an anode basket suspended in a grap
 
 \subsection{Electrowinning}
 
-The molten salt contains TRUs from electrorefining and are separated through electrowinning with trace uranium quantities. With a temperature of 500$^{\circ}$C there is approximately 99 wt\% reduction in actinides and lanthanides. 
+The molten salt contains TRUs from electrorefining and are separated through electrowinning with trace uranium quantities. With a temperature of 500$^{\circ}$C there is approximately 99 wt\% reduction in actinides and lanthanides \cite{flowsheet_1998}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method: \Cyclus Simulation}
 The separations facility provided by the \Cycamore library expansion is used as an initial model of a simple PRIDE facility. The separations archetype allows for the declaration of a feed stream and requires the user-definition of facility efficiencies. Each waste stream requires a material balance over voloxidation, electroreduction, electrorefining and electrowinning. The main waste streams found are metallic waste, ceramic waste from electrowinning and electroreduction, and vitrified waste. Vitrified waste contains the majority of TRUs, Sr, and rare-earth elements. The efficiencies of each stream and their isotopes are determined through theoretical material balance determined by the NEA and Hermann et al \cite{flowsheet_1998,herrmann_separation_2010}. The simple simulation was run to verify the table of efficiencies input to \Cyclus.
