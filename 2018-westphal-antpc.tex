@@ -33,11 +33,18 @@ gtw2@illinois.edu
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Pyroprocessing does not yet have methods to quantify safeguardability of its waste streams. 
-This work assesses system parameters that influence separation efficiency and throughput to customizable pyroprocessing facility archetype for use with the Cyclus framework.
-A generic facility model allows simulations to inform priority locations for detectors and inspection for the timely notification of material diversion. 
+Quantifying potential signatures and observables of material diverted from a 
+pyroprocessing facility presents a modeling challenge.
+This work assesses system parameters that influence separation efficiency and 
+throughput. We leverage these parameters to implement a customizable pyroprocessing facility archetype for use with the Cyclus framework.
+This generic facility model will allow simulations to 
+quantify signatures and observables associated with various operational modes 
+and material throughputs for a variety of facility designs. Such quantification 
+can timely detection of material diversion. 
 This paper describes the Pyre facility archetype design, pyroprocessing flowsheets captured by the model, and simulation capabilities it enables. 
-To analyze data retrieved from the model, a minimum relative entropy model is proposed and simulations discussed.
+To analyze data retrieved from the model, we propose a class for tracking and 
+observing signatures and observables which will be extensible for other 
+facility archetypes in the future.
 \end{abstract}
 \section{Introduction}
 The diversion of significant quantities of special nuclear material from the nuclear fuel cycle is major non-proliferation 
