@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.12.21)  4 APR 2018 18:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.12.21)  4 MAY 2018 18:03
 entering extended mode
 **./2018-westphal-antpc.tex
 (2018-westphal-antpc.tex
@@ -222,6 +222,16 @@ Package: cuted 2012/10/04 v1.5 Mixing onecolumn and twocolumn modes
 ("F:\MiKTeX 2.9\tex\latex\tools\indentfirst.sty"
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ))
+("F:\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks22
+\float@box=\box33
+\@float@everytoks=\toks23
+\@floatcapt=\box34
+)
+\@float@every@table=\toks24
+
 ("F:\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -245,7 +255,7 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ("F:\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count103
+\Gread@gobject=\count104
 ))
 \Gin@req@height=\dimen121
 \Gin@req@width=\dimen122
@@ -262,22 +272,22 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen130
 \cmidrulekern=\dimen131
 \defaultaddspace=\dimen132
-\@cmidla=\count104
-\@cmidlb=\count105
+\@cmidla=\count105
+\@cmidlb=\count106
 \@aboverulesep=\dimen133
 \@belowrulesep=\dimen134
-\@thisruleclass=\count106
-\@lastruleclass=\count107
+\@thisruleclass=\count107
+\@lastruleclass=\count108
 \@thisrulewidth=\dimen135
 )
 ("F:\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
 Package: microtype 2016/05/14 v2.6a Micro-typographical refinements (RS)
-\MT@toks=\toks22
-\MT@count=\count108
+\MT@toks=\toks25
+\MT@count=\count109
 LaTeX Info: Redefining \textls on input line 774.
 \MT@outer@kern=\dimen136
 LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
-\MT@listname@count=\count109
+\MT@listname@count=\count110
 
 ("F:\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def"
 File: microtype-pdftex.def 2016/05/14 v2.6a Definitions specific to pdftex (RS)
@@ -301,7 +311,7 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen137
 \extrarowheight=\dimen138
-\NC@list=\toks23
+\NC@list=\toks26
 \extratabsurround=\skip51
 \backup@length=\skip52
 )
@@ -310,47 +320,47 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \TX@old@col=\dimen141
 \TX@target=\dimen142
 \TX@delta=\dimen143
-\TX@cols=\count110
-\TX@ftn=\toks24
+\TX@cols=\count111
+\TX@ftn=\toks27
 ) (2018-westphal-antpc.aux)
 \openout1 = `2018-westphal-antpc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 30.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 30.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 33.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 33.
 
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\omltxmi.fd"
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 30.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 30.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 33.
 
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\omstxsy.fd"
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 30.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 30.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 33.
 
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\omxtxex.fd"
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 30.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 30.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 33.
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\utxexa.fd"
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for T1+txr on input line 30.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Try loading font information for T1+txr on input line 33.
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\t1txr.fd"
 File: t1txr.fd 2000/12/15 v3.1
@@ -399,17 +409,17 @@ Right:0.0pt
 Output:0.0pt
 ("F:\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
+\scratchcounter=\count112
 \scratchdimen=\dimen144
-\scratchbox=\box33
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count114
+\scratchbox=\box35
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count115
 \MPscratchDim=\dimen145
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
-\everyMPtoPDFconversion=\toks26
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks29
 ) ("F:\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -452,7 +462,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Info: Redefining \microtypecontext on input line 30.
+LaTeX Info: Redefining \microtypecontext on input line 33.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -466,27 +476,46 @@ Package microtype Info: No adjustment of character kerning.
 ("F:\MiKTeX 2.9\tex\latex\microtype\mt-ptm.cfg"
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 46.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+<flowchart.pdf, id=1, 426.37192pt x 532.54959pt>
+File: flowchart.pdf Graphic file (type pdf)
+ <use flowchart.pdf>
+Package pdftex.def Info: flowchart.pdf used on input line 78.
+(pdftex.def)             Requested size: 252.94499pt x 315.9405pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 78--79
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./flowchart.pdf>]
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 91.
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\ot1txr.fd"
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 46.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 91.
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\utxmia.fd"
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 46.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 91.
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\utxsya.fd"
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 46.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 91.
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\utxsyb.fd"
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 46.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 91.
 
 ("F:\MiKTeX 2.9\tex\latex\txfonts\utxsyc.fd"
 File: utxsyc.fd 2000/12/15 v3.1
@@ -494,57 +523,35 @@ File: utxsyc.fd 2000/12/15 v3.1
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
-
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 1107) in paragraph at lines 80--80
-[]|\T1/txr/bx/n/10 Vapor Pres-sure
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-[]|\T1/txr/bx/n/10 Evaporation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-[]|\T1/txr/bx/n/10 Salt Re-moval
- []
-
-
-Underfull \hbox (badness 10000) in alignment at lines 80--80
-[][][] 
- []
-
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 80--81
+Overfull \hbox (9.0pt too wide) in paragraph at lines 166--169
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
 []|\T1/txr/bx/n/10 Temperature
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
 []|\T1/txr/bx/n/10 Evaporation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
 []|\T1/txr/bx/n/10 Salt Re-moval
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 98--98
+Underfull \hbox (badness 10000) in alignment at lines 190--190
 [][][] 
  []
 
 
-Overfull \hbox (9.0pt too wide) in paragraph at lines 98--99
+Overfull \hbox (9.0pt too wide) in paragraph at lines 190--193
  [][] 
  []
 
@@ -552,36 +559,38 @@ Overfull \hbox (9.0pt too wide) in paragraph at lines 98--99
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<Hou_Network.png, id=11, 654.94687pt x 586.69188pt>
+<Hou_Network.png, id=32, 654.94687pt x 586.69188pt>
 File: Hou_Network.png Graphic file (type png)
  <use Hou_Network.png>
-Package pdftex.def Info: Hou_Network.png used on input line 112.
+Package pdftex.def Info: Hou_Network.png used on input line 231.
 (pdftex.def)             Requested size: 177.06458pt x 158.60587pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2 <./Hou_Network.png>] (2018-westphal-antpc.bbl
+ [3 <./Hou_Network.png>] (2018-westphal-antpc.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-) [3]
+) [4]
 (2018-westphal-antpc.aux) ) 
 Here is how much of TeX's memory you used:
- 5638 strings out of 493320
- 78467 string characters out of 3145021
- 182360 words of memory out of 3000000
- 8835 multiletter control sequences out of 15000+200000
- 48665 words of font info for 226 fonts, out of 3000000 for 9000
+ 5725 strings out of 493320
+ 79522 string characters out of 3145021
+ 188776 words of memory out of 3000000
+ 8901 multiletter control sequences out of 15000+200000
+ 49428 words of font info for 238 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,11n,38p,1187b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,11n,38p,415b,285s stack positions out of 5000i,500n,10000p,200000b,50000s
 {F:/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<F:/MiKTe
-X 2.9/fonts/type1/public/txfonts/rtxb.pfb><F:/MiKTeX 2.9/fonts/type1/public/txf
-onts/rtxr.pfb><F:/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><F:/MiKTeX 2.
-9/fonts/type1/public/txfonts/txsy.pfb><F:/MiKTeX 2.9/fonts/type1/urw/times/utmb
-8a.pfb><F:/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><F:/MiKTeX 2.9/fonts/typ
-e1/urw/times/utmri8a.pfb>
-Output written on 2018-westphal-antpc.pdf (3 pages, 306581 bytes).
+X 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><F:/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmss10.pfb><F:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b><F:/MiKTeX 2.9/fonts/type1/public/txfonts/rtxb.pfb><F:/MiKTeX 2.9/fonts/type1
+/public/txfonts/rtxr.pfb><F:/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><F
+:/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><F:/MiKTeX 2.9/fonts/type1/urw
+/times/utmb8a.pfb><F:/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><F:/MiKTeX 2.
+9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on 2018-westphal-antpc.pdf (4 pages, 351498 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 25094 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 25099 words of extra memory for PDF output out of 29859 (max. 10000000)
 

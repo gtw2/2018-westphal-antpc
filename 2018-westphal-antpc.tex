@@ -1,7 +1,7 @@
 \documentclass{anstrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{PyRe: A Cyclus Pyroprocessing Facility Archetype}
-\author{\textbf{Gregory T. Westphal} and Kathryn D. Huff}
+\title{Pyre: A Cyclus Pyroprocessing Facility Archetype}
+\author{Gregory T. Westphal and Kathryn D. Huff}
 
 \institute{
 Dept. of Nuclear, Plasma and Radiological Engineering, University of Illinois at Urbana-Champaign \\
@@ -33,11 +33,18 @@ gtw2@illinois.edu
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Pyroprocessing does not yet have methods to quantify safeguardability of its waste streams. 
-This work assesses system parameters that influence separation efficiency and throughput to customizable pyroprocessing facility archetype for use with the Cyclus framework.
-A generic facility model allows simulations to inform priority locations for detectors and inspection for the timely notification of material diversion. 
+Quantifying potential signatures and observables of material diverted from a 
+pyroprocessing facility presents a modeling challenge.
+This work assesses system parameters that influence separation efficiency and 
+throughput. We leverage these parameters to implement a customizable pyroprocessing facility archetype for use with the Cyclus framework.
+This generic facility model will allow simulations to 
+quantify signatures and observables associated with various operational modes 
+and material throughputs for a variety of facility designs. Such quantification 
+can timely detection of material diversion. 
 This paper describes the Pyre facility archetype design, pyroprocessing flowsheets captured by the model, and simulation capabilities it enables. 
-To analyze data retrieved from the model, a minimum relative entropy model is proposed and simulations discussed.
+To analyze data retrieved from the model, we propose a class for tracking and 
+observing signatures and observables which will be extensible for other 
+facility archetypes in the future.
 \end{abstract}
 \section{Introduction}
 The diversion of significant quantities of special nuclear material from the nuclear fuel cycle is major non-proliferation 
@@ -118,7 +125,7 @@ their respective effects on the efficiency table. Efficiencies also vary accordi
 waste streams for LWR and FR fuels, for example. Multiple material choices exist for anodes and cathodes as well as other 
 design choices that require consideration. 
 
-\subsection{Variations}
+\subsection{Parameters}
 It's important to consider variations in the construction of a pyroprocessing archetype since facility designs vary in 
 multiple aspects which affect the throughput and efficiencies of different waste streams. Advanced methods for electrorefining 
 developed by KAERI \cite{lee_advanced_nodate} further improve salt removal efficiencies and the effect of parameter variation. 
@@ -126,17 +133,38 @@ Temperature and pressure provide a significant improvement in removal efficiency
 
 \begin{table}[h]
 	\centering
-	\begin{tabularx}{0.5\textwidth}{ccc}
+	\begin{tabularx}{0.5\textwidth}{cll}
 		\hline
-		\textbf{Vapor Pressure (mTorr)} & \textbf{Evaporation Coefficient} & \textbf{Salt Removal Efficiency} \\
+		\textbf{Sub-process} & \textbf{Parameters} & \textbf{S \& O} \\
 		\hline
-		500 & 3.04x10$^{-5}$ & 97.3 \\
-		300 & 2.66x10$^{-5}$ & 99.6 \\
-		200 & 1.25x10$^{-4}$ & 99.4 \\
-		100 & 1.78x10$^{-4}$ & 99.9 \\
+		Voloxidation & Volume & Tritium \\
+		& Flow Rate &  Iodine\\
+		& Temperature & Technitium \\
+		& Time & Actinides\\ \hline
+		Electroreduction & Volume & $^{90}$Sr \\
+		& Batch Size & $^{135}$Cs \\
+		& Li$_2$O wt\% & $^{137}$Cs \\
+		& Current & Power Draw \\
+		& Porosity & Shipments \\
+		& Distillation Speed & \\ \hline
+		Electrorefining & Volume & Fission Products\\
+		& Throughput & Power Draw \\
+		& Material & Waste Salt \\
+		& Anode Rotation & Vacuum Pressure\\
+		& Stirrer Speed & Temperature \\
+		& Pressure & \\
+		& Temperature & \\ \hline
+		Electrowinning & Current & Power Draw \\
+		& Shroud Material & Cadmium Waste \\
+		& Time & Fission Products \\
+		& Flow Rate & $^{135}$Cs \\
+		&  & $^{137}$Cs \\ \hline
+		Facility & Throughput & Shipments \\
+		& Batch Size & Parking Lot \\
+		& & Thermal Image \\
 		\hline
 	\end{tabularx}
-	\caption {Under vacuum pressure, the evaporation coefficient and theoretical maximum removal efficiencies are calculated \cite{lee_advanced_nodate}.}
+	\caption {Archetype inputs  \cite{lee_advanced_nodate}.}
 	\label {tab:pressure}
 \end{table}
 
