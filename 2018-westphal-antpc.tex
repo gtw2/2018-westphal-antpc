@@ -30,6 +30,12 @@ gtw2@illinois.edu
 \newcolumntype{f}{>{\hsize=.1\hsize}X}
 \newcolumntype{a}{>{\hsize=.45\hsize}X}
 
+\usepackage{amsmath}
+
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
+\makeglossaries
+
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
@@ -49,7 +55,7 @@ facility archetypes in the future.
 \section{Introduction}
 The diversion of significant quantities of special nuclear material from the nuclear fuel cycle is major non-proliferation 
 concern \cite{noauthor_iaea_2017}. These diversions must be detected in a timely manner using signatures and observables in 
-order to properly safegaurd the fuel cycle. Pyroprocessing is a used nuclear fuel separations technology capable of both 
+order to properly safeguard the fuel cycle. Pyroprocessing is a used nuclear fuel separations technology capable of both 
 converting current generation waste into sodium fast reactor fuel, and reprocessing next generation molten salt fuel types. 
 With a new reprocessing technology comes new signatures and observables which in turn necessitate new diversion detection methods. 
 The goal of this research is to identify potential signs of material diversion in a pyroprocessing facility and implement models 
@@ -87,7 +93,7 @@ are described below regarding information to be used by \Cyclus.
 
 \subsection{Voloxidation}
 
-For LWR fuel, the fuel must be initially treated and separated before proceeding with electrolytic processes. Heated under 
+\gls{LWR} fuel must be initially treated and separated before proceeding with electrolytic processes. Heated under 
 500$^{\circ}$C, noble gases and tritium are collected to decay in storage, and uranium dioxide is converted to $U_3O_8$. 
 Actinides are also converted to their stable oxide forms and a majority are removed \cite{flowsheet_1998}. 
 
