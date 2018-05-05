@@ -67,7 +67,7 @@ and between facilities. Potentially trackable signatures and observables include
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Background: Pyroprocessing}
-Pyroprocessing is an eletrochemical separation process used to recycle spent fuel into metallic fuel for use in advanced reactors.
+Pyroprocessing is an electrochemical separation process used to recycle spent fuel into metallic fuel for use in advanced reactors.
 With the capability of processing various forms of waste, efficiencies will differ according to design. There are four major 
 systems within pyroprocessing with observable waste: voloxidation, electroreduction, electrorefining, and electrowinning \cite{Borrelli_2017}.  
 
@@ -86,26 +86,20 @@ are described below regarding information to be used by \Cyclus.
 \subsection{Voloxidation}
 
 For LWR fuel, the fuel must be initially treated and separated before proceeding with electrolytic processes. Heated under 
-500$^{\circ}$C, noble gases and tritium are collected to decay in storage, and uranium dioxide is converted to $U_3O_8$. 
-Actinides are also converted to their stable oxide forms and a majority are removed \cite{flowsheet_1998}. 
+500$^{\circ}$C, noble gases, carbon, and tritium are collected to decay in storage, and uranium dioxide is converted to $U_3O_8$. 
+Actinides are also converted to their stable oxide forms and a majority are removed \cite{flowsheet_1998,jubin_spent_2009}. Voloxidation throughput
+can be increased by heating the uranium dioxide to temperatures in excess of 800$^{\circ}$C. Other methods to improve the U$_3$O$_8$ 
+reaction rate are to use alternative oxidants such as cycling between H$_2$ and air \cite{jubin_spent_2009}.
 
 \subsection{Electroreduction}
 
-Oxide pellets, created in voloxidation, enter the cathode, a negatively charged metal basket. Voltage between 100 and 500 mA/cm$^2$ is applied 
-to the anode in a molten LiCl salt. The electrolytic reduction process primarily results in the diffusion of Cs, Ba and Sr, 
-along with the reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
-
-Lee et al. \cite{lee_advanced_2008} show that the addition of vacuum pressure to the system improves removal efficiency. Temperature, however, 
-exhibits the opposite effect: as temperature decreases so does salt removal. This comes into effect particularly 
-depending on material choice of instrumentation and containment \cite{lee_advanced_2008}. The most limiting material choice 
-is iron because a eutectic forms between Fe and U at 725$^{\circ}$C \cite{chapman_revision_1984}. In facilities where iron 
-equipment is present temperatures are limited to 700$^{\circ}$C, and efficiency is significantly hindered.
-
+Oxide pellets, created in voloxidation, enter the cathode, a negatively charged metal basket. Voltage between 100 and 500 mA/cm$^2$ 
+is applied to the anode in a molten LiCl salt. The electrolytic reduction process primarily results in the diffusion of 
+Cs, Ba and Sr, along with the reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
 Electroreduction can further improve its throughput by the addition of Li$_2$O as a catalyst and to prevent dissolution 
-of the anode \cite{choi_electrochemical_2015}. The catalyst often is used in concentration of 1 wt\% with potential for 
-up to 3 wt\%. Since Li$_2$O is used to speed up the reaction, it is important to note that for signatures and observables 
-the operators could add more oxide than reported to IAEA. More frequent shipments of lithium oxide can be tracked as an 
-observable to match records.
+of the anode \cite{choi_electrochemical_2015}. Since Li$_2$O is used to speed up the reaction, it is important to note 
+that for signatures and observables the operators could add more oxide than reported to IAEA. More frequent shipments 
+of lithium oxide can be tracked as an observable to match records.
 
 \subsection{Electrorefining}
 
@@ -115,10 +109,14 @@ the cathode as metallic uranium. The waste transuranics (TRUs) and lathanides ar
 products and cladding remain in the anode basket. Finally, actinides and fission products are removed from the cladding 
 electrochemically \cite{lee_korean_2011}.
 
-Cathode arrangement and anode rotation speed also affect the collection of uranium dendrites. Uneven, or sub-optimal, 
-placement of cathodes result in an uneven electric field for electrolysis and lower efficiency while a high rotation 
-speed causes remixing \cite{lee_advanced_2008}. The addition of a central stirrer allows mixing of uranium dendrites 
-stuck on the bottom of the vessel, improving separation efficiency and reducing the electrorefining time. 
+Lee et al. \cite{lee_advanced_2008} show that the addition of vacuum pressure to the system improves removal efficiency. 
+Temperature, however, exhibits the opposite effect: as temperature decreases so does salt removal. This comes into effect 
+particularly depending on material choice of instrumentation and containment \cite{lee_advanced_2008}. The most limiting 
+material choice is iron because a eutectic forms between Fe and U at 725$^{\circ}$C \cite{chapman_revision_1984}. 
+In facilities where iron equipment is present temperatures are limited to 700$^{\circ}$C, and efficiency is 
+significantly hindered. Cathode arrangement and anode rotation speed also affect the collection of uranium 
+dendrites \cite{lee_advanced_2008}. The addition of a central stirrer allows mixing of uranium dendrites stuck on 
+the bottom of the vessel, improving separation efficiency and increasing throughput. 
 
 \subsection{Electrowinning}
 
@@ -192,11 +190,6 @@ Temperature and pressure provide a significant improvement in removal efficiency
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Method: Proposed Algorithms}
-Prior methodology explored by Hou et al. and Yilmaz et al. \cite{Hou_2016,Yilmaz_2016} consists of a minimum relative 
-entropy based model and the Poisson distribution respectively. Both methods are based on similar observables for the LWR 
-fuel cycle. Enrichment facilities often have set production speeds for various enrichment levels and typical shipping 
-options, expedited and standard. 
 
 \section{Discussion}
 Using a material balance area over electrorefining and electroreduction yields the majority of detectable waste from 
