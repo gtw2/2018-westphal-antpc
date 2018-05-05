@@ -1,0 +1,42 @@
+% Author: Kathryn Huff
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\tikzset{%
+  >={Latex[width=2mm,length=2mm]},
+  % Specifications for style of nodes:
+            base/.style = {rectangle, rounded corners, draw=black,
+                           minimum width=3cm, minimum height=1cm,
+                           text centered, font=\sffamily},
+       bluebox/.style = {base, fill=gray!15}, %blue!30
+       redbox/.style = {base, fill=white!30}, %red
+       greenbox/.style = {base, fill=white!30}, %green
+       process/.style = {base, minimum width=2.5cm, fill=gray!30, %orange!15
+                           font=\ttfamily},
+}
+% Drawing part, node distance is 1.5 cm and every node
+% is prefilled with white background
+\begin{document}
+\begin{tikzpicture}[node distance=3cm,
+    every node/.style={fill=white, font=\sffamily}, align=center]
+  % Specification of nodes (position, etc.)
+  
+  \node (volox)				[process] {Voloxidation};
+  \node (time)				[greenbox, left of=volox, xshift=-2cm, yshift=1.5cm] {Time};
+  \node (temp)	 			[greenbox, left of=volox, xshift=-2cm] {Temperature};
+  \node (oxidant)			[greenbox, left of=volox, xshift=-2cm, yshift=-1.5cm] {Oxidant};
+  \node (gas) 				[redbox, right of=volox, xshift=2cm, yshift=1.5cm] {$^{14}$C, $^{85}$Kr, $^{129}$I}; 
+  \node (actinide)			[redbox, right of=volox, xshift=2cm] {Actinide Waste};
+  \node (tritium)			[redbox, right of=volox, xshift=2cm, yshift=-1.5cm] {Tritium};
+  
+  \draw[->]					(volox)++(0,2) -- (volox) node[midway] {UO$_2$};
+  \draw[->]					(volox) -- (tritium);
+  \draw[->] 				(volox) -- (gas);
+  \draw[->]					(volox) -- (actinide);
+  \draw[->]					(time) -- (volox);
+  \draw[->]					(temp) -- (volox);
+  \draw[->]					(oxidant) -- (volox);
+  \draw[->]					(volox) -- ++(0,-2) node[midway] {U$_3$O$_8$};
+
+  \end{tikzpicture}
+\end{document}
