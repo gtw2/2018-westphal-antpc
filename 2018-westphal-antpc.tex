@@ -92,14 +92,16 @@ Voloxidation throughput can be increased by heating the uranium dioxide to tempe
 Other methods to improve the U$_3$O$_8$ reaction rate are to use alternative oxidants such as cycling between H$_2$ and air \cite{jubin_spent_2009}.
 
 \begin{figure}[ht]
-	\centering\includegraphics[width=1\linewidth]{volox}
+	\centering
+	\includegraphics[width=1\linewidth]{volox}
 	\caption{A material balance over the voloxidation sub-process, including observables.}
 	\label{fig:volox}
 \end{figure}
 
 \subsection{Electroreduction}
 
-Oxide pellets, created in voloxidation, enter the cathode, a negatively charged metal basket. Voltage between 100 and 500 mA/cm$^2$ 
+Oxide pellets, created in voloxidation, enter the cathode, a negatively charged metal basket. Current density between 100 and 
+500 mA/cm$^2$ 
 is applied to the anode in a molten LiCl salt. The electrolytic reduction process primarily results in the diffusion of 
 Cs, Ba and Sr, along with the reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
 Electroreduction can further improve its throughput by the addition of Li$_2$O as a catalyst and to prevent dissolution 
@@ -127,6 +129,13 @@ significantly hindered. Cathode arrangement and anode rotation speed also affect
 dendrites \cite{lee_advanced_2008}. The addition of a central stirrer allows mixing of uranium dendrites stuck on 
 the bottom of the vessel, improving separation efficiency and increasing throughput. 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.9\linewidth]{refining}
+	\caption{A material balance over the electrorefining sub-process, including observables.}
+	\label{fig:refining}
+\end{figure}
+
 The electrorefining process also produces the fission product waste stream which requires monitoring. The following products are produced 
 and tracked in this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}.
 
@@ -142,21 +151,24 @@ with the anode. Higher porosity corresponds to free ion paths and a higher curre
 time for reduction and winning are reduced \cite{choi_electrochemical_2015}.
 
 \begin{figure}[ht]
-	\centering\includegraphics[width=1\linewidth]{winning}
+	\centering
+	\includegraphics[width=1\linewidth]{winning}
 	\caption{A material balance over the electrowinning sub-process, including observables.}
 	\label{fig:winning}
 \end{figure}
 
-Electrowinning produces Cs waste similar to electroreduction except in reduced quantities.
+Figure \ref{fig:winning} shows that electrowinning produces Cs waste similar to electroreduction except in reduced quantities. Any fission products remaining in the salt from electrorefining are also removed here. Outside of physically tracked quantities, facility power can also be monitored to observe the use of current to increase throughput. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method: \Cyclus Simulation}
-The separations facility provided by the \Cycamore library expansion is used as an initial model of a simple PRIDE facility. 
-The separations archetype allows for the declaration of a feed stream and requires the user-definition of facility efficiencies. 
+The separations facility provided by the \Cycamore library is used as an initial model of a simple PRIDE facility. 
+The user provides the separations archetype with a feed stream and facility efficiencies.  
 Each waste stream requires a material balance over voloxidation, electroreduction, electrorefining and electrowinning. The main 
 waste streams are metallic waste, ceramic waste from electrowinning and electroreduction, and vitrified waste. Vitrified 
 waste contains the majority of TRUs, Sr, and rare-earth elements. The elemental separation efficiencies are 
 determined through theoretical material balance determined by the NEA and Hermann et al \cite{flowsheet_1998,herrmann_separation_2010}. 
-The simple simulation using a separations facility was run to verify the table of efficiencies input to \Cyclus.
+The simple simulation using a separations facility was run to verify the table of efficiencies input to \Cyclus. A scenario was 
+created of one separations facility with a feed of five year cooled spent LWR fuel at a burn-up of 45GWd/MTIHM to 
+match results seen in \cite{flowsheet_1998}.
 
 A pyroprocessing facility can be modeled with the separations archetype at low fidelity 
 by a dedicated archetype. The goal for Pyre is to include facility configuration parameters and 
@@ -165,10 +177,8 @@ waste streams for LWR and FR fuels, for example. Multiple material choices exist
 design choices that require consideration. 
 
 \subsection{Parameters}
-It's important to consider facility configuration parameters in the construction of a pyroprocessing archetype since facility designs vary in 
-multiple aspects which affect the throughput and efficiencies of different waste streams. Advanced methods for electrorefining 
-developed by KAERI \cite{lee_advanced_2008} further improve salt removal efficiencies and the effect of parameter variation. 
-Temperature and pressure provide a significant improvement in removal efficiency, but can vary depending on facility specifications. 
+It's important to consider facility configuration parameters in the construction of a pyroprocessing archetype. Facility designs vary in 
+multiple aspects which affect the throughput and efficiencies of different waste streams. Variables have been described above through material balance of each sub-process and their system parameters. Table I consists of the inputs derived from the previously mentioned process parameters and material flow. 
 
 \begin{table}[h]
 	\centering
@@ -208,6 +218,8 @@ Temperature and pressure provide a significant improvement in removal efficiency
 	\caption {Archetype inputs and signatures \& observables at each sub-process.}
 	\label {tab:pressure}
 \end{table}
+
+The signatures and observables contain quantities that 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
