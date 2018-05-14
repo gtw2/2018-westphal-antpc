@@ -60,7 +60,7 @@ detection timeliness enabled by quantifying signatures and observables in variou
 \Cyclus models the flow of material through user-defined nuclear fuel cycle scenarios. Facilities in nuclear fuel cycles vary, 
 requiring a diverse collection of pre-designed facility process models, known as \emph{archetypes}. \Cycamore, the CYClus 
 Additional MOdules REpository, provides common facility archetypes (separations, enrichment, reactor, etc.)
-\cite{huff_extensions_2014}. Archetypes provide a mold for users to input values specific to each facility with a known output 
+\cite{carlsen_cycamore_2014}. Archetypes provide a mold for users to input values specific to each facility with a known output 
 \Cyclus can interpret. Simulations run in discrete time steps that allow exact isotopes to be dynamically tracked between facilities \cite{huff_fundamental_2016}. Tracking requires a form of signature or observable to follow the material accurately throughout 
 and between facilities. Potentially trackable signatures and observables include truck deliveries, power draw, and steam production  \cite{Hou_2016,Yilmaz_2016}.
 \Cyclus' discrete time allows users to investigate diversion and flag the time and location diversion occurs.
@@ -108,6 +108,13 @@ Electroreduction can further improve its throughput by the addition of Li$_2$O a
 of the anode \cite{choi_electrochemical_2015}. Since Li$_2$O is used to speed up the reaction, it is important to note 
 that for signatures and observables the operators could add more oxide than reported to IAEA. More frequent shipments 
 of lithium oxide can be tracked as an observable to match records.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\linewidth]{reduction}
+	\caption{An enlarged material balance over the electroreduction process with signatures and observables.}
+	\label{fig:reduction}
+\end{figure}
 
 Electroreduction produces the majority of Sr and Cs waste with a considerable decay 
 signature proportional to the efficiency and size of the feed batch \cite{Borrelli_2017,flowsheet_1998}.
@@ -182,44 +189,47 @@ multiple aspects which affect the throughput and efficiencies of different waste
 
 \begin{table}[h]
 	\centering
-	\begin{tabularx}{0.5\textwidth}{cll}
+	\begin{tabularx}{0.5\textwidth}{llcr}
 		\hline
-		\textbf{Sub-process} & \textbf{Parameters} & \textbf{S \& O} \\
+		\textbf{Sub-process} & \textbf{Parameters} & \textbf{S \& O} & \textbf{Refs} \\
 		\hline
-		Voloxidation & Volume & Tritium \\
-		& Oxidant & $^{14}$C \\
-		& Flow Rate &  $^{129}$I\\
-		& Temperature & $^{85}$Kr \\
-		& Time & Actinides\\ \hline
-		Electroreduction & Volume & $^{90}$Sr \\
-		& Batch Size & $^{135}$Cs \\
-		& Li$_2$O wt\% & $^{137}$Cs \\
-		& Current & Power Draw \\
-		& Porosity & Shipments \\
-		& Distillation Speed & \\ \hline
-		Electrorefining & Volume & Fission Products\\
-		& Throughput & Power Draw \\
-		& Material & Waste Salt \\
-		& Anode Rotation & Vacuum Pressure\\
-		& Stirrer Speed & Temperature \\
-		& Pressure & \\
-		& Temperature & \\ \hline
-		Electrowinning & Current & Power Draw \\
-		& Shroud Material & Cadmium Waste \\
-		& Time & Fission Products \\
-		& Flow Rate & Lanthanides \\
-		&  & $^{135}$Cs \\
-		&  & $^{137}$Cs \\ \hline
-		Facility & Throughput & Shipments \\
-		& Batch Size & Parking Lot \\
-		& & Thermal Image \\
+		Voloxidation & Volume & Tritium & \cite{jubin_spent_2009} \\
+		& Oxidant & $^{14}$C & \cite{flowsheet_1998} \\
+		& Flow Rate &  $^{129}$I &  \\
+		& Temperature & $^{85}$Kr &  \\
+		& Time & Actinides & \\ \hline
+		Electroreduction & Volume & $^{90}$Sr & \cite{Borrelli_2017} \\
+		& Batch Size & $^{135}$Cs & \cite{flowsheet_1998} \\
+		& Li$_2$O wt\% & $^{137}$Cs & \cite{choi_electrochemical_2015} \\
+		& Current & Power Draw & \cite{lee_korean_2011} \\
+		& Porosity & Shipments & \cite{lee_modeling_2016} \\
+		& Distillation Speed & & \\ \hline
+		Electrorefining & Volume & Fission Products & \cite{lee_advanced_2008} \\
+		& Throughput & Power Draw & \cite{lee_korean_2011} \\
+		& Material & Waste Salt & \cite{flowsheet_1998} \\
+		& Anode Rotation & Vacuum Pressure & \cite{koyama_development_2012} \\
+		& Stirrer Speed & Temperature & \cite{kim_development_2013} \\
+		& Pressure &  & \\
+		& Temperature & & \\ \hline
+		Electrowinning & Current & Power Draw & \cite{flowsheet_1998} \\
+		& Shroud Material & Cadmium Waste & \cite{lee_korean_2011} \\
+		& Time & Fission Products & \cite{Borrelli_2017} \\
+		& Flow Rate & Lanthanides & \\
+		&  & $^{135}$Cs & \\
+		&  & $^{137}$Cs & \\ \hline
+		Facility & Throughput & Shipments & \\
+		& Batch Size & Parking Lot & \\
+		& & Thermal Image & \\
 		\hline
 	\end{tabularx}
 	\caption {Archetype inputs and signatures \& observables at each sub-process.}
 	\label {tab:pressure}
 \end{table}
 
-The signatures and observables contain quantities that 
+The signatures and observables contain quantities that are measured directly inside
+the facility and indirect characteristics observables at distance. A broader category for the facility as a whole is also described for larger parameters such as
+throughput and batch size. The number of shipments and cars in the parking lot also serve as an indicator to excess work being done. Thermal imaging, further, can
+determine the operational status of the facility.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
