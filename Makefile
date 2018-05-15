@@ -1,10 +1,16 @@
 manuscript = 2018-westphal-antpc
 references = $(wildcard *.bib)
+flowchart = flowchart.tex
+winning = winning.tex 
+volox = volox.tex 
+reduction = reduction.tex 
+refining = refining.tex 
+figures = flowchartpdf voloxpdf reductionpdf winningpdf refiningpdf
 latexopt   = -halt-on-error -file-line-error
 
 all: all-via-pdf
 
-all-via-pdf: $(manuscript).tex $(references)
+all-via-pdf: $(manuscript).tex $(figures) $(references)
 	pdflatex $(latexopt) $<
 	bibtex $(manuscript).aux
 	pdflatex $(latexopt) $<
@@ -16,6 +22,22 @@ all-via-dvi:
 	latex $(latexopt) $(manuscript)
 	latex $(latexopt) $(manuscript)
 	dvipdf $(manuscript)
+
+flowchartpdf: $(flowchart)
+	pdflatex $(latexopt) $<
+
+voloxpdf: $(volox)
+	pdflatex $(latexopt) $<
+
+reductionpdf: $(reduction)
+	pdflatex $(latexopt) $<
+
+refiningpdf: $(refining)
+	pdflatex $(latexopt) $<
+
+winningpdf: $(winning)
+	pdflatex $(latexopt) $<
+
 
 epub: 
 	latex $(latexopt) $(manuscript)
