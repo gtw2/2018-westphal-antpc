@@ -22,21 +22,24 @@
   % Specification of nodes (position, etc.)
   
   \node (volox)				[process] {Voloxidation};
-  \node (time)				[greenbox, left of=volox, xshift=-2cm, yshift=1.5cm] {Time};
-  \node (temp)	 			[greenbox, left of=volox, xshift=-2cm] {Temperature};
-  \node (oxidant)			[greenbox, left of=volox, xshift=-2cm, yshift=-1.5cm] {Oxidant};
-  \node (gas) 				[redbox, right of=volox, xshift=2cm, yshift=1.5cm] {$^{14}$C, $^{85}$Kr, $^{129}$I}; 
-  \node (actinide)			[redbox, right of=volox, xshift=2cm] {Actinide Waste};
-  \node (tritium)			[redbox, right of=volox, xshift=2cm, yshift=-1.5cm] {Tritium};
+  \node (time)				[greenbox, left of=volox, xshift=-2cm, yshift=0.75cm] {Time};
+  \node (vol)	 			[greenbox, left of=volox, xshift=-2cm, yshift=-0.75cm] {Volume};
+  \node (flow)				[greenbox, left of=volox, xshift=-2cm, yshift=2.25cm] {Flow Rate};
+  \node (oxidant)			[greenbox, left of=volox, xshift=-2cm, yshift=-2.25cm] {Oxidant};
+  \node (temp)				[redbox, right of=volox, xshift=2cm, yshift=0.75cm] {Temperature};
+  \node (gas) 				[redbox, right of=volox, xshift=2cm, yshift=2.25cm] {$^{14}$C, $^{85}$Kr, $^{129}$I}; 
+  \node (actinide)			[redbox, right of=volox, xshift=2cm, yshift=-0.75cm] {Actinide Waste};
+  \node (tritium)			[redbox, right of=volox, xshift=2cm, yshift=-2.25cm] {Tritium};
   
-  \draw[->]					(volox)++(0,2) -- (volox) node[midway] {UO$_2$};
+  \draw[->]					(volox)++(0,2.5) -- (volox) node[midway] {UO$_2$};
   \draw[->]					(volox) -- (tritium);
   \draw[->] 				(volox) -- (gas);
   \draw[->]					(volox) -- (actinide);
   \draw[->]					(time) -- (volox);
-  \draw[->]					(temp) -- (volox);
+  \draw[->]					(volox) -- (temp);
   \draw[->]					(oxidant) -- (volox);
-  \draw[->]					(volox) -- ++(0,-2) node[midway] {U$_3$O$_8$};
-
+  \draw[->]					(volox) -- ++(0,-2.5) node[midway] {U$_3$O$_8$};
+  \draw[->]					(vol) -- (volox);
+  \draw[->]					(flow) -- (volox);
   \end{tikzpicture}
 \end{document}

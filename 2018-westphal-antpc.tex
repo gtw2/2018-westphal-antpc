@@ -66,13 +66,13 @@ detection timeliness enabled by measuring signatures and observables in various 
 \Cyclus models the flow of material through user-defined nuclear fuel cycle scenarios. Facilities in nuclear fuel cycles vary, 
 requiring a diverse collection of pre-designed facility process models, known as \emph{archetypes}. \Cycamore, the CYClus 
 Additional MOdules REpository, provides common facility archetypes (separations, enrichment, reactor, etc.)
-\cite{carlsen_cycamore_2014}. Archetypes are customizable agent models which populate the simulation. Simulations run in discrete time steps and allow exact isotopes to be dynamically tracked between facilities \cite{huff_fundamental_2016}. This work seeks to add signature and observable tacking capabilities to \Cyclus. Potentially trackable signatures and observables include truck deliveries, power draw, and steam production  \cite{Hou_2016,Yilmaz_2016}.
+\cite{carlsen_cycamore_2014}. Archetypes are customizable agent models which populate the simulation. Simulations run in discrete time steps and allow exact isotopes to be dynamically tracked between facilities \cite{huff_fundamental_2016}. This work seeks to add signature and observable tacking capabilities to \Cyclus. Potentially trackable signatures and observables include truck deliveries, power draw, and steam production  \cite{Hou_2016,Yilmaz_2016}. This list is expanded upon in Table \ref{tab:params} to include pyroprocessing parameters.
 \Cyclus' discrete time allows users to investigate diversion and flag the time and location diversion occurs.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Pyroprocessing}
 Pyroprocessing is an electrochemical separation process used to recycle spent fuel into metallic fuel for use in advanced reactors.
-With the capability of processing various forms of waste, efficiencies will differ according to design. There are four major 
+Separation efficiencies will differ according to design and fuel type. There are four major 
 systems within pyroprocessing with observable waste: voloxidation, electroreduction, electrorefining, and electrowinning \cite{Borrelli_2017}.  
 
 \begin{figure}[ht] % replace 't' with 'b' to force it to be on the bottom
@@ -235,7 +235,7 @@ multiple aspects which affect the throughput and efficiencies of different waste
 
 The signatures and observables contain quantities that are measured directly inside
 the facility and indirect characteristics observables at distance. A broader category for the facility as a whole is also described for global parameters such as
-throughput and batch size. Since throughput is a facility parameter, 
+throughput and batch size. Since throughput is a facility observable, 
 it is seen in a majority of the sub-processes. Reduction is limited by 
 batch size therefore reducing the throughput of proceeding steps to the 
 electrochemical process. The number of shipments and cars in the parking lot also serve as an indicator to excess work being done. Thermal imaging, further, can

@@ -24,11 +24,12 @@
  
   \node (refining)			[process] {Electrorefining};
   \node (winning)			[process, below of=refining, xshift=2cm] {Electrowinning};
-  \node (temp)	 			[greenbox, left of=refining, xshift=-2cm, yshift=-1cm] {Temperature};
+  \node (temp)	 			[greenbox, left of=refining, xshift=-2cm, yshift=-1.5cm] {Temperature};
   \node (fission) 			[redbox, right of=refining, xshift=2cm, yshift=-1cm] {Fission Products};
-  \node (pressure)			[greenbox, left of=refining, xshift=-2cm, yshift=0.5cm] {Pressure};
-  \node (rotation)	 		[greenbox, left of=refining, xshift=-2cm, yshift=-2.5cm] {Rotation/Stirrer speed};
-  \node (material)			[greenbox, left of=refining, xshift=-2cm, yshift=2cm] {Material};
+  \node (pressure)			[greenbox, left of=refining, xshift=-2cm] {Pressure};
+  \node (rotation)	 		[greenbox, left of=refining, xshift=-2cm, yshift=-3cm] {Rotation/Stirrer speed};
+  \node (material)			[greenbox, left of=refining, xshift=-2cm, yshift=1.5cm] {Material};
+  \node (vol)				[greenbox, left of=refining, xshift=-2cm, yshift=3cm] {Volume and Time};
   \node (power)				[redbox, right of=refining, xshift=2cm, yshift=-2.5cm] {Power Draw};
   \node (waste)				[redbox, right of=refining, xshift=2cm, yshift=0.5cm] {Waste Salt};
   \node (temp+press)		[redbox, right of=refining, xshift=2cm, yshift=2cm] {Temperature \& \\ Pressure Reading};
@@ -36,14 +37,16 @@
   \node (salt distl)		[bluebox, below of=refining, xshift=-1cm] {Salt \\ Distillation};
   
   
-  \draw[->]					(material) -- (refining);
+  \draw[->]					(material.east) -- ++(0.25,0) --++(0,-1.25) -- (refining);;
   \draw[->]					(refining) -- (temp+press);
   \draw[->]					(refining) -- (waste);
   \draw[->]					(refining) -- (power);
   \draw[->]					(pressure) -- (refining);
-  \draw[->]					(temp) -- (refining);
-  \draw[->]					(rotation) -- (refining);
+  \draw[->]					(temp.east) -- ++(0.25,0) --++(0,1.25) -- (refining);
+  \draw[->]					(rotation.east) -- ++(0.25,0) --++(0,2.5) -- (refining);
   \draw[->]					(refining) -- (fission);
+  \draw[->]					(vol.east) -- ++(0.5,0) --++(0,-2.5) -- (refining);
+  
   \draw[->]					(refining)++(0.75,-0.5) -- ++(0,-1) -- ++(0.75,0) -| (winning);
   \draw[->]					(refining)++(-1.5,-0.5) -- ++(0,-2)(salt distl) node[midway] {U + salt};
   \draw[->]					(salt distl)++(0.75,0.5) -- ++(0,2) (refining) node[midway] {salt};
