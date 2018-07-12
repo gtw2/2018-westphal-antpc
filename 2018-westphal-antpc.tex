@@ -84,8 +84,8 @@ systems within pyroprocessing with observable waste: voloxidation, electroreduct
 
 Figure \ref{fig:flowchart} demonstrates the primary separations steps involved in a general pyroprocessing facility. The main process 
 parameters are along the left side of the flowsheet, each applied to processes most significantly impacted. The boxes on the 
-right side of the processes contain the observable waste produced by each step that \Cyclus can track. Each of the main processes 
-are described below regarding information to be used by \Cyclus.
+right side of the processes contain the observable waste produced by each step that \Cyclus can track. Explicit behavior of each main process 
+is described below regarding information to be used by \Cyclus. 
 
 \subsection{Voloxidation}
 
@@ -148,11 +148,11 @@ the bottom of the vessel, improving separation efficiency and increasing through
 \end{figure}
 
 The electrorefining process also produces the fission product waste stream which requires monitoring. The following products are produced 
-and tracked in this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}.
+and tracked in this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}. Uranium and TRU product streams separated at this stage are sent to Fuel Fabrication, while the remaining salt is reformed as an oxidant and recirculated.
 
 \subsection{Electrowinning}
 
-The molten salt contains TRUs from electrorefining that are separated through electrowinning with trace uranium quantities, lanthanides and fission products. 
+The molten salt containing TRUs from electrorefining that are separated through electrowinning with trace uranium quantities, lanthanides and fission products. 
 With a temperature of 500$^{\circ}$C there is approximately 99 wt\% reduction in actinides and lanthanides \cite{flowsheet_1998}. 
 Throughput is also dependent on material choice for the inert electrodes whose operating voltages vary, impacting separation 
 efficiency \cite{koyama_development_2012}. A shroud surrounds the anode to provide a path for O$^{2-}$ ions to the anode and 
@@ -168,7 +168,9 @@ time for electroreduction and electrowinning are reduced \cite{choi_electrochemi
 	\label{fig:winning}
 \end{figure}
 
-Figure \ref{fig:winning} shows that electrowinning produces Cs waste similar to electroreduction except in reduced quantities. Any fission products remaining in the salt from electrorefining are also removed here. In addition to physically tracked quantities, facility power can also be monitored to observe the use of current to increase throughput. 
+Figure \ref{fig:winning} shows that electrowinning produces Cs waste similar to electroreduction except in reduced quantities.
+Any fission products remaining in the salt from electrorefining are also removed here. In addition to physically tracked 
+quantities, facility power can also be monitored to observe the use of current to increase throughput. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method: \Cyclus Simulation}
 The separations facility provided by the \Cycamore library is used as an 
