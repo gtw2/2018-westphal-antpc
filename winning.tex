@@ -28,8 +28,8 @@
   \node (cesium)			[redbox, right of=winning, xshift=2cm, yshift=1.5cm] {Lanthanides}; 
   \node (fission)			[redbox, right of=winning, xshift=2cm] {Fission Products};
   \node (power)				[redbox, right of=winning, xshift=2cm, yshift=-1.5cm] {Power Draw};
-  \node (fuel)				[process, below of=winning, xshift=-2cm] {Fuel \\ Fabrication};
-  \node (refining)			[process, below of=winning, xshift=2.25cm] {Electrorefining};
+  %\node (fuel)				[process, below of=winning, xshift=-2cm] {Fuel \\ Fabrication};
+  \node (refining)			[process, below of=winning] {Electrorefining};
   
   \draw[->]					(winning)++(0,2) -- (winning) node[midway] {LiCl-KCl + U/TRU};
   \draw[->]					(winning) -- (fission);
@@ -38,8 +38,8 @@
   \draw[->]					(time) -- (winning);
   \draw[->]					(current) -- (winning);
   \draw[->]					(shroud) -- (winning);
-  \draw[->]					(winning)++(-0.25,-0.5) -- ++(0,-1) -- ++(-1.75,0) node[midway] {U/TRU} -- (fuel);
-  \draw[->]					(winning)++(0.25,-0.5) -- ++(0,-1) -- ++(2,0) node[midway] {FP/Salt/U} -- (refining) ;
+  %\draw[->]					(winning)++(-0.25,-0.5) -- ++(0,-1) -- ++(-1.75,0) node[midway] {U/TRU} -- (fuel);
+  \draw[->]					(winning) -- (refining) node[midway] {FP/Salt/U};
 
   \end{tikzpicture}
 \end{document}
