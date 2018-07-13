@@ -34,8 +34,8 @@
   \node (waste)				[redbox, right of=refining, xshift=2cm, yshift=0.5cm] {Waste Salt};
   \node (temp+press)		[redbox, right of=refining, xshift=2cm, yshift=2cm] {Temperature \& \\ Pressure Reading};
   \node (salt distl)		[bluebox, below of=refining, xshift=-1cm] {Salt \\ Distillation};
-  \node (fuelfab)			[process, below of=salt distl] {Fuel \\ Fabrication};
-  \node (refine2)			[process, below of=refining, xshift=2cm, yshift=-3cm] {Electrorefining};
+  \node (fuelfab)			[process, below of=salt distl, yshift=0.75cm] {Fuel \\ Fabrication};
+  \node (refine2)			[process, below of=refining, xshift=2cm, yshift=-2.25cm] {Electrorefining};
   
   
   \draw[->]					(material.east) -- ++(0.25,0) --++(0,-1.25) -- (refining);;
