@@ -80,12 +80,13 @@ pyroprocessing systems with observable waste: voloxidation, electroreduction, el
 \end{figure}
 
 Figure \ref{fig:flowchart} demonstrates the primary separations steps involved in a general pyroprocessing facility. Main process parameters are placed to the left of their respective subprocess. Boxes on the 
-right side of the processes contain the observable waste produced by each step that PyRe tracks. Explicit behavior of each main process is described below. 
+right side of the processes contain the observable waste produced by each step that PyRe tracks. 
+Explicit behavior of each main process is described below. 
 
 \subsection{Voloxidation}
 
-LWR fuel must be treated and separated before proceeding with electrolytic processes. Heated under 
-500$^{\circ}$C, noble gases, carbon, and tritium are collected to decay in storage, and uranium dioxide is converted to $U_3O_8$. 
+LWR fuel must be treated and separated before proceeding with electrolytic processes. Uranium dioxide heated under 
+500$^{\circ}$C is converted to $U_3O_8$ while noble gases, carbon, and tritium are collected to decay in storage. 
 Actinides are also converted to their stable oxide forms and a majority are removed \cite{flowsheet_1998,jubin_spent_2009}. 
 Heating uranium dioxide above 800$^{\circ}$C increases voloxidation throughput.
 Cycling oxidants between H$_2$ and air also improves the U$_3$O$_8$ reaction rate \cite{jubin_spent_2009}.
@@ -154,8 +155,7 @@ Throughput also depends on material choice for the inert electrodes, impacting s
 efficiency \cite{koyama_development_2012}. A shroud surrounds the anode to provide a path for O$^{2-}$ ions to the anode and 
 prevent Cl$_2$ from corroding the anode \cite{kim_development_2013,choi_electrochemical_2015}. Optimum operating current 
 depends on material choice for the anode shroud since a nonporous shroud limits ion pathways to the anode contact points.
-Higher porosity corresponds to free ion paths and a higher current. Higher current reduces the separation 
-time for electroreduction and electrowinning \cite{choi_electrochemical_2015}.
+Higher porosity corresponds to free ion paths and a higher current. Increased currents reduce the separation time for electroreduction and electrowinning \cite{choi_electrochemical_2015}.
 
 \begin{figure}[ht]
 	\centering
@@ -182,16 +182,19 @@ fuel at a burn-up of 45 \gls{GWd} per \gls{MTIHM} to
 match results seen in \cite{flowsheet_1998}.
 
 A pyroprocessing facility can be modeled with the separations archetype at low fidelity 
-by a dedicated archetype. The goal for Pyre is to include facility configuration parameters and 
-their respective effects on the efficiency table. Any material not separated by the four processes is categorized as
-leftover commodity, ensuring material conservation is maintained. A test will also be used to verify isotopic 
-efficiencies add up to 1. Efficiencies also vary according to the feed stream resulting in different 
-waste streams for LWR and FR fuels, for example. Multiple material choices exist for anodes and cathodes as well as other 
-design choices that require consideration. 
+by a dedicated archetype. 
+The goal for Pyre is to include facility configuration parameters and 
+their respective effects on the efficiency table. 
+Any material not separated by the four processes is categorized as leftover commodity, ensuring material conservation is maintained. 
+A test will also be used to verify isotopic efficiencies add up to 1. 
+Efficiencies also vary according to the feed stream resulting in different waste streams for LWR and FR fuels, for example. 
+Multiple material choices exist for anodes and cathodes as well as other design choices that require consideration. 
 
 \subsection{Parameters}
-Facility configuration parameters customize the pyroprocessing archetype. Facility designs vary in 
-multiple aspects which affect the throughputs and efficiencies of different waste streams. Variables have been described above through material balance of each sub-process and their system parameters. Table \ref{tab:params} consists of the  derived from the previously mentioned process parameters and material flow. 
+Facility configuration parameters customize the pyroprocessing archetype. 
+Facility designs vary in multiple aspects which affect the throughputs and efficiencies of different waste streams. 
+Variables have been described above through material balance of each sub-process and their system parameters. 
+Table \ref{tab:params} consists of the  derived from the previously mentioned process parameters and material flow. 
 
 \begin{table}[h]
 	\centering
