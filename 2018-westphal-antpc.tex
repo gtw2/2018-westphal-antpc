@@ -40,7 +40,7 @@ $^*$gtw2@illinois.edu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 This work assesses system parameters that influence separation efficiency and 
-throughput. We leverage these parameters to implement a customizable pyroprocessing facility \emph{archetype}, Pyre, for use with the Cyclus framework.
+throughput of pyroprocessing facilities. We leverage these parameters to implement a customizable pyroprocessing facility \emph{archetype}, PyRe, for use with the Cyclus framework.
 This generic facility model will allow simulations to 
 quantify signatures and observables associated with various operational modes 
 and material throughputs for a variety of facility designs. Such quantification 
@@ -64,7 +64,7 @@ detection timeliness enabled by measuring signatures and observables in various 
 \Cyclus models the flow of material through user-defined nuclear fuel cycle scenarios. Facilities in nuclear fuel cycles vary, 
 requiring a diverse collection of pre-designed facility process models, known as \emph{archetypes}. \Cycamore, the CYClus 
 Additional MOdules REpository, provides common facility archetypes (separations, enrichment, reactor, etc.)
-\cite{carlsen_cycamore_2014}. Archetypes are customizable agent models which populate the simulation. Simulations run in discrete time steps and allow exact isotopes to be dynamically tracked between facilities \cite{huff_fundamental_2016}. This work seeks to add signature and observable tacking capabilities to \Cyclus. Potentially trackable signatures and observables include truck deliveries and  power draw  \cite{Hou_2016,Yilmaz_2016}. This list is expanded upon in Table \ref{tab:params} to include pyroprocessing parameters.
+\cite{carlsen_cycamore_2014}. Archetypes are customizable agent models which populate the simulation. Exact isotopes are dynamically tracked between facilities in discrete time steps \cite{huff_fundamental_2016}. This work seeks to add signature and observable tacking capabilities to \Cyclus. Potentially trackable signatures and observables include truck deliveries and  power draw  \cite{Hou_2016,Yilmaz_2016}. This list is expanded upon in Table \ref{tab:params} to include pyroprocessing parameters.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Pyroprocessing}
@@ -79,8 +79,7 @@ pyroprocessing systems with observable waste: voloxidation, electroreduction, el
 	\label{fig:flowchart}
 \end{figure}
 
-Figure \ref{fig:flowchart} demonstrates the primary separations steps involved in a general pyroprocessing facility. The main process 
-parameters are along the left side of the flowsheet, each applied to processes most significantly impacted. The boxes on the 
+Figure \ref{fig:flowchart} demonstrates the primary separations steps involved in a general pyroprocessing facility. Main process parameters are placed to the left of their respective subprocess. Boxes on the 
 right side of the processes contain the observable waste produced by each step that PyRe tracks. Explicit behavior of each main process is described below. 
 
 \subsection{Voloxidation}
@@ -100,7 +99,7 @@ Cycling oxidants between H$_2$ and air also improves the U$_3$O$_8$ reaction rat
 
 \subsection{Electroreduction}
 
-Yellowcake, created in voloxidation, enters the cathode, a negatively charged metal basket. Current density between 100 and 500 mA/cm$^2$ 
+Oxidant is converted into metallic fuel through electroreduction for use in the proceeding processes. Yellowcake, created in voloxidation, enters the cathode, a negatively charged metal basket. Current density between 100 and 500 mA/cm$^2$ 
 is applied to the anode in a molten LiCl salt. The electrolytic reduction process primarily results in the diffusion of 
 Cs, Ba and Sr, along with the reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
 Electroreduction can further improve its throughput by the addition of Li$_2$O as a catalyst; this catalyst also prevents dissolution 
@@ -119,6 +118,7 @@ This stream has considerable decay signature proportional to the efficiency and 
 
 \subsection{Electrorefining}
 
+Once in metallic form, electrorefining electrochemically separates uranium and TRUs for fuel fabrication.
 The uranium and salt mixture from reduction is fed into an anode basket suspended in a graphite cathode. A LiCl-KCl eutectic is used as 
 an electrolyte above 500$^{\circ}$C \cite{flowsheet_1998,lee_korean_2011}. The uranium dissolves at the anode to recombine at 
 the cathode as metallic uranium. The waste transuranics (TRUs) and lathanides are in a soluble chloride form  while fission 
