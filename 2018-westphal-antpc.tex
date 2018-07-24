@@ -1,6 +1,6 @@
 \documentclass{anstrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Pyre: A Cyclus Pyroprocessing Facility Archetype}
+\title{PyRe: A Cyclus Pyroprocessing Facility Archetype}
 \author{Gregory T. Westphal$^*$ and Kathryn D. Huff}
 
 \institute{
@@ -39,8 +39,6 @@ $^*$gtw2@illinois.edu
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Quantifying potential signatures and observables of material diverted from a 
-pyroprocessing facility presents a modeling challenge.
 This work assesses system parameters that influence separation efficiency and 
 throughput. We leverage these parameters to implement a customizable pyroprocessing facility \emph{archetype}, Pyre, for use with the Cyclus framework.
 This generic facility model will allow simulations to 
@@ -57,7 +55,7 @@ The diversion of significant quantities of SNM from the nuclear fuel cycle is ma
 concern \cite{noauthor_iaea_2017}. These diversions must be detected in a timely manner using signatures and observables in 
 order to properly safegaurd the fuel cycle. Timely detection is critical in non-proliferation to discover these shadow fuel cycles
 before diverted material is further processed. Pyroprocessing is a used nuclear fuel separations technology for advanced reactors. 
-With a reprocessing technology comes signatures and observables which in turn necessitate unique diversion detection methods. 
+Signatures and observables are used to detect diversion of nuclear material.
 The goal of this research is to identify potential signs of material diversion in a pyroprocessing facility and implement models 
 of these processes into a detailed pyroprocessing facility archetype to the modular, agent-based, fuel cycle simulator, \Cyclus \cite{huff_fundamental_2016}. This facility archetype will equip users of the \Cyclus fuel cycle simulator to investigate the 
 detection timeliness enabled by measuring signatures and observables in various fuel cycle scenarios.
@@ -66,14 +64,13 @@ detection timeliness enabled by measuring signatures and observables in various 
 \Cyclus models the flow of material through user-defined nuclear fuel cycle scenarios. Facilities in nuclear fuel cycles vary, 
 requiring a diverse collection of pre-designed facility process models, known as \emph{archetypes}. \Cycamore, the CYClus 
 Additional MOdules REpository, provides common facility archetypes (separations, enrichment, reactor, etc.)
-\cite{carlsen_cycamore_2014}. Archetypes are customizable agent models which populate the simulation. Simulations run in discrete time steps and allow exact isotopes to be dynamically tracked between facilities \cite{huff_fundamental_2016}. This work seeks to add signature and observable tacking capabilities to \Cyclus. Potentially trackable signatures and observables include truck deliveries, power draw, and steam production  \cite{Hou_2016,Yilmaz_2016}. This list is expanded upon in Table \ref{tab:params} to include pyroprocessing parameters.
-\Cyclus' discrete time allows users to investigate diversion and flag the time and location diversion occurs.
+\cite{carlsen_cycamore_2014}. Archetypes are customizable agent models which populate the simulation. Simulations run in discrete time steps and allow exact isotopes to be dynamically tracked between facilities \cite{huff_fundamental_2016}. This work seeks to add signature and observable tacking capabilities to \Cyclus. Potentially trackable signatures and observables include truck deliveries and  power draw  \cite{Hou_2016,Yilmaz_2016}. This list is expanded upon in Table \ref{tab:params} to include pyroprocessing parameters.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Pyroprocessing}
 Pyroprocessing is an electrochemical separation process used to recycle spent fuel into metallic fuel for use in advanced reactors.
-Separation efficiencies will differ according to design and fuel type. There are four major 
-systems within pyroprocessing with observable waste: voloxidation, electroreduction, electrorefining, and electrowinning \cite{Borrelli_2017}.  
+Separation efficiencies differ according to pyroprocessing facility design and fuel type. There are four major 
+pyroprocessing systems with observable waste: voloxidation, electroreduction, electrorefining, and electrowinning \cite{Borrelli_2017}.  
 
 \begin{figure}[ht] % replace 't' with 'b' to force it to be on the bottom
 	\centering
@@ -84,31 +81,29 @@ systems within pyroprocessing with observable waste: voloxidation, electroreduct
 
 Figure \ref{fig:flowchart} demonstrates the primary separations steps involved in a general pyroprocessing facility. The main process 
 parameters are along the left side of the flowsheet, each applied to processes most significantly impacted. The boxes on the 
-right side of the processes contain the observable waste produced by each step that \Cyclus can track. Explicit behavior of each main process 
-is described below regarding information to be used by \Cyclus. 
+right side of the processes contain the observable waste produced by each step that PyRe tracks. Explicit behavior of each main process is described below. 
 
 \subsection{Voloxidation}
 
 LWR fuel must be treated and separated before proceeding with electrolytic processes. Heated under 
 500$^{\circ}$C, noble gases, carbon, and tritium are collected to decay in storage, and uranium dioxide is converted to $U_3O_8$. 
 Actinides are also converted to their stable oxide forms and a majority are removed \cite{flowsheet_1998,jubin_spent_2009}. 
-Voloxidation throughput can be increased by heating the uranium dioxide to temperatures in excess of 800$^{\circ}$C. 
-Other methods to improve the U$_3$O$_8$ reaction rate are to use alternative oxidants such as cycling between H$_2$ and air \cite{jubin_spent_2009}.
+Heating uranium dioxide above 800$^{\circ}$C increases voloxidation throughput.
+Cycling oxidants between H$_2$ and air also improves the U$_3$O$_8$ reaction rate \cite{jubin_spent_2009}.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{volox}
+	\includegraphics[width=1\linewidth]{volox}
 	\caption{A material balance over the voloxidation sub-process, including observables.}
 	\label{fig:volox}
 \end{figure}
 
 \subsection{Electroreduction}
 
-Yellowcake, created in voloxidation, enters the cathode, a negatively charged metal basket. A Current density between 100 and 
-500 mA/cm$^2$ 
+Yellowcake, created in voloxidation, enters the cathode, a negatively charged metal basket. Current density between 100 and 500 mA/cm$^2$ 
 is applied to the anode in a molten LiCl salt. The electrolytic reduction process primarily results in the diffusion of 
 Cs, Ba and Sr, along with the reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
-Electroreduction can further improve its throughput by the addition of Li$_2$O as a catalyst; the catalyst also prevents dissolution 
+Electroreduction can further improve its throughput by the addition of Li$_2$O as a catalyst; this catalyst also prevents dissolution 
 of the anode \cite{choi_electrochemical_2015}. Since Li$_2$O is used to speed up the reaction,
 the operators could add more oxide than reported to IAEA. More frequent shipments 
 of lithium oxide can be tracked as an observable to match records.
@@ -120,8 +115,7 @@ of lithium oxide can be tracked as an observable to match records.
 	\label{fig:reduction}
 \end{figure}
 
-Electroreduction produces the majority of Sr and Cs waste compared to electrowinning. This stream has considerable decay 
-signature proportional to the efficiency and size of the feed batch \cite{Borrelli_2017,flowsheet_1998}.
+This stream has considerable decay signature proportional to the efficiency and size of the feed batch \cite{Borrelli_2017,flowsheet_1998}.
 
 \subsection{Electrorefining}
 
@@ -142,7 +136,7 @@ the bottom of the vessel, improving separation efficiency and increasing through
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{refining}
+	\includegraphics[width=1\linewidth]{refining}
 	\caption{A material balance over the electrorefining sub-process, including observables.}
 	\label{fig:refining}
 \end{figure}
@@ -154,7 +148,7 @@ is not detailed enough to benefit from analyzing inter-batch processes. Therefor
 
 \subsection{Electrowinning}
 
-The molten salt containing TRUs from electrorefining that are separated through electrowinning with trace uranium quantities, lanthanides and fission products. 
+Molten salt containing TRUs from electrorefining is separated through electrowinning. This subprocess results in separation of trace uranium quantities, lanthanides and fission products. 
 With a temperature of 500$^{\circ}$C there is approximately 99 wt\% reduction in actinides and lanthanides \cite{flowsheet_1998}. 
 Throughput is also dependent on material choice for the inert electrodes whose operating voltages vary, impacting separation 
 efficiency \cite{koyama_development_2012}. A shroud surrounds the anode to provide a path for O$^{2-}$ ions to the anode and 
@@ -195,7 +189,7 @@ design choices that require consideration.
 
 \subsection{Parameters}
 Facility configuration parameters customize the pyroprocessing archetype. Facility designs vary in 
-multiple aspects which affect the throughput and efficiencies of different waste streams. Variables have been described above through material balance of each sub-process and their system parameters. Table \ref{tab:params} consists of the  derived from the previously mentioned process parameters and material flow. 
+multiple aspects which affect the throughputs and efficiencies of different waste streams. Variables have been described above through material balance of each sub-process and their system parameters. Table \ref{tab:params} consists of the  derived from the previously mentioned process parameters and material flow. 
 
 \begin{table}[h]
 	\centering
@@ -251,7 +245,7 @@ determine the operational status of the facility.
 Using a material balance area over electrorefining and electroreduction yields the majority of detectable waste from 
 the electrochemical processes.  Material balances over the remaining 
 processes are used to verify diversion did not occur. Fuel fabrication is also at high risk of diversion. Finished product can be diverted with no additional 
-processing steps, a material balance area is also taken here. 
+processing steps and a material balance area is also taken here. 
 
 To determine the most sensitive points for diversion, multiple scenarios must be considered. 
 Each facility parameter must be varied to observe their effects, as well as using a limited number of material balance areas. 
