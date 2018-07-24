@@ -144,7 +144,7 @@ the bottom of the vessel, improving separation efficiency and increasing through
 The electrorefining process also produces the fission product waste stream which requires monitoring. The following products are produced 
 and tracked in this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}. Uranium and TRU product streams separated at this stage are sent to Fuel Fabrication, while the remaining salt is reformed as an oxidant and recirculated.
 Separation efficiencies are taken after recirculation, and treated as a once-through cycle. The Cyclus time step
-is not detailed enough to benefit from analyzing inter-batch processes. Therefore, only end-state efficiencies are used rather than an explicit model.
+is not detailed enough to benefit from analyzing intra-batch processes. Therefore, only end-state efficiencies are used rather than an explicit model.
 
 \subsection{Electrowinning}
 
@@ -183,7 +183,9 @@ match results seen in \cite{flowsheet_1998}.
 
 A pyroprocessing facility can be modeled with the separations archetype at low fidelity 
 by a dedicated archetype. The goal for Pyre is to include facility configuration parameters and 
-their respective effects on the efficiency table. Efficiencies also vary according to the feed stream resulting in different 
+their respective effects on the efficiency table. Any material not separated by the four processes is categorized as
+leftover commodity, ensuring material conservation is maintained. A test will also be used to verify isotopic 
+efficiencies add up to 1. Efficiencies also vary according to the feed stream resulting in different 
 waste streams for LWR and FR fuels, for example. Multiple material choices exist for anodes and cathodes as well as other 
 design choices that require consideration. 
 
