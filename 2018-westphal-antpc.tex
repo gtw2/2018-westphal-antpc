@@ -81,11 +81,11 @@ pyroprocessing systems with observable waste: voloxidation, electroreduction, el
 
 Figure \ref{fig:flowchart} demonstrates the primary separations steps involved in a general pyroprocessing facility. Main process parameters are placed to the left of their respective subprocess. Boxes on the 
 right side of the processes contain the observable waste produced by each step that PyRe tracks. 
-Explicit behavior of each main process is described below. 
+The explicit behavior of each main process is described below. 
 
 \subsection{Voloxidation}
 
-LWR fuel must be treated and separated before proceeding with electrolytic processes. Uranium dioxide heated under 
+LWR fuel must be treated and separated before proceeding with electrolytic processes. Uranium dioxide heated to 
 500$^{\circ}$C is converted to $U_3O_8$ while noble gases, carbon, and tritium are collected to decay in storage. 
 Actinides are also converted to their stable oxide forms and a majority are removed \cite{flowsheet_1998,jubin_spent_2009}. 
 Heating uranium dioxide above 800$^{\circ}$C increases voloxidation throughput.
@@ -93,16 +93,17 @@ Cycling oxidants between H$_2$ and air also improves the U$_3$O$_8$ reaction rat
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\linewidth]{volox}
+	\includegraphics[width=\linewidth]{volox}
 	\caption{A material balance over the voloxidation sub-process, including observables.}
 	\label{fig:volox}
 \end{figure}
 
 \subsection{Electroreduction}
 
-Oxidant is converted into metallic fuel through electroreduction for use in the proceeding processes. Yellowcake, created in voloxidation, enters the cathode, a negatively charged metal basket. Current density between 100 and 500 mA/cm$^2$ 
-is applied to the anode in a molten LiCl salt. The electrolytic reduction process primarily results in diffusion of 
-Cs, Ba and Sr, along with reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
+The oxidant is converted into metallic fuel through electroreduction to be further refined through electrorefining and electrowinning. 
+Yellowcake, created in voloxidation, enters the cathode, a negatively charged metal basket. 
+A current density between 100 and 500 mA/cm$^2$ is applied to the anode in a molten LiCl salt. 
+The electrolytic reduction process primarily results in diffusion of Cs, Ba and Sr, along with reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
 Electroreduction can further improve its throughput by adding Li$_2$O as a catalyst; this catalyst also prevents dissolution 
 of the anode \cite{choi_electrochemical_2015}. Since Li$_2$O is used to speed up the reaction,
 the operators could add more oxide than reported to IAEA. More frequent shipments 
@@ -110,16 +111,16 @@ of lithium oxide can be tracked as an observable to match records.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\linewidth]{reduction}
+	\includegraphics[width=\linewidth]{reduction}
 	\caption{A material balance over the electroreduction process with signatures and observables.}
 	\label{fig:reduction}
 \end{figure}
 
-This stream has considerable decay signature proportional to the efficiency and size of the feed batch \cite{Borrelli_2017,flowsheet_1998}.
+This stream has a considerable decay signature proportional to the efficiency and size of the feed batch \cite{Borrelli_2017,flowsheet_1998}.
 
 \subsection{Electrorefining}
 
-Once in metallic form, electrorefining electrochemically separates uranium and TRUs for fuel fabrication.
+Once in metallic form, electrorefining electrochemically separates uranium and  for fuel fabrication.
 The uranium and salt mixture from reduction is fed into an anode basket suspended in a graphite cathode. 
 A LiCl-KCl eutectic is used as an electrolyte above 500$^{\circ}$C \cite{flowsheet_1998,lee_korean_2011}. 
 Uranium dissolves at the anode to recombine at the cathode as metallic uranium. 
@@ -130,7 +131,7 @@ Lee et al. \cite{lee_advanced_2008} show decreasing system pressure improves rem
 Temperature, however, exhibits the opposite effect: as temperature decreases so does salt removal. This comes into effect 
 particularly depending on material choice of instrumentation and containment \cite{lee_advanced_2008}. 
 Iron, for example, limits operating temperature because a eutectic forms at 725$^{\circ}$C \cite{chapman_revision_1984}.
-In facilities where iron equipment is present, temperatures are limited to 700$^{\circ}$C, and efficiency is significantly hindered. 
+In facilities where iron equipment is present, temperatures are limited to 700$^{\circ}$C, hindering efficiency. 
 Cathode arrangement and anode rotation speed also affect the collection of uranium 
 dendrites \cite{lee_advanced_2008}. A central stirrer mixes uranium dendrites stuck on 
 the vessel, improving separation efficiency and increasing throughput. 
@@ -142,15 +143,15 @@ the vessel, improving separation efficiency and increasing throughput.
 	\label{fig:refining}
 \end{figure}
  
-The electrorefining process also produces the fission product waste stream which requires monitoring. 
-The following products are produced and tracked in this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}. 
-Uranium and TRU product streams separated at this stage are sent to Fuel Fabrication, while the remaining salt is reformed as an oxidant and recirculated.
+The electrorefining process also produces a fission product waste stream which requires monitoring. 
+The following products are produced and tracked in PyRe at this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}. 
+Uranium and TRU product streams separated at this stage are sent to fuel fabrication, while the remaining salt is reformed as an oxidant and recirculated.
 Separation efficiencies are taken after recirculation, and treated as a once-through cycle. Cyclus' time step
 is not detailed enough to benefit from analyzing intra-batch processes. Therefore, only end-state efficiencies are used rather than an explicit model.
 
 \subsection{Electrowinning}
 
-Molten salt containing TRUs from electrorefining is separated through electrowinning. This subprocess results in separation of trace uranium quantities, lanthanides and fission products. 
+Molten salt containing TRUs from electrorefining is separated through electrowinning. This process separates trace uranium quantities, lanthanides and fission products. 
 At 500$^{\circ}$C there is approximately 99 wt\% reduction in actinides and lanthanides \cite{flowsheet_1998}. 
 Throughput also depends on material choice for the inert electrodes, impacting separation 
 efficiency \cite{koyama_development_2012}. A shroud surrounds the anode to provide a path for O$^{2-}$ ions to the anode and 
@@ -183,9 +184,9 @@ fuel at a burn-up of 45 \gls{GWd} per \gls{MTIHM} to
 match results seen in \cite{flowsheet_1998}.
 
 A pyroprocessing facility can be modeled with the separations archetype at low fidelity. 
-The goal for PyRe is to include facility configuration parameters and their respective effects on the efficiency table. 
+The goal for PyRe is to include facility configuration parameters and monitor variations in efficiencies to detect diversion. 
 Any material not separated by the four processes is categorized as leftover commodity, ensuring material conservation is maintained. 
-A test will also be used to verify isotopic efficiencies add up to 1. 
+Unit tests and runtime checks will confirm material conservation. 
 Efficiencies also vary according to the feed stream resulting in different waste streams for LWR and FR fuels, for example. 
 Multiple material choices exist for anodes and cathodes as well as other design choices that require consideration. 
 
