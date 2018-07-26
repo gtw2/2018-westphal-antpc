@@ -120,7 +120,7 @@ of lithium oxide can be tracked as an observable to match records.
 	\label{fig:reduction}
 \end{figure}
 
-This stream has a considerable decay signature proportional to the efficiency and size of the feed batch \cite{Borrelli_2017,flowsheet_1998}.
+The Cesium and Strontium stream has a considerable decay signature proportional to the efficiency and size of the feed batch \cite{Borrelli_2017,flowsheet_1998}.
 
 \subsection{Electrorefining}
 
@@ -192,14 +192,12 @@ A pyroprocessing facility can be modeled with the separations archetype at low f
 The goal for \Gls{PyRe} is to include facility configuration parameters and provide the user with data to optimize detector placement.
 \Gls{PyRe} accomplishes this by performing detailed separations at each subprocess and compiling the resulting streams.
 Any material not separated by the four processes is categorized as leftover commodity, ensuring material conservation is maintained. 
-Unit tests and runtime checks will confirm material conservation. 
-Efficiencies also vary according to the feed stream resulting in different waste streams for \Gls{LWR} and FR fuels, for example. 
+Unit tests and runtime checks will confirm material conservation.  
 
 \subsection{Parameters}
 Facility configuration parameters customize the pyroprocessing archetype and vary by design. 
 These pyroprocessing designs vary in multiple aspects which affect the throughputs and efficiencies of different waste streams. 
-Variables have been described above through material balance of each sub-process and their system parameters. 
-Table \ref{tab:params} consists of the  derived from the previously mentioned process parameters and material flow. 
+Table \ref{tab:params} compiles efficiency parameters for each sub-process.
 
 \begin{table}[h]
 	\centering
@@ -253,8 +251,8 @@ electrochemical process. The finished product and cars in the parking lot also s
 \section{Discussion}
 Using a material balance area over electrorefining and electroreduction yields the majority of detectable waste from 
 the electrochemical processes.  Material balances over the remaining 
-processes are used to verify diversion did not occur. Fuel fabrication is also at high risk of diversion. Finished product can be diverted with no additional 
-processing steps and a material balance area is also taken here. 
+processes are used to verify diversion did not occur. Fuel fabrication is also at high risk of diversion. 
+Finished product can be diverted with no additional processing steps so a material balance area is also taken here. 
 
 Multiple scenarios must be considered to determine the most sensitive points for diversion. 
 Each facility parameter must be varied to observe their effects, as well as using a limited number of material balance areas. 
