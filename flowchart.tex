@@ -48,12 +48,12 @@
   \draw[->]					(volox) -- (actinide);
 
   \draw[->]					(reduction) -- (decay);
-  \draw[->]					(Li2O) -- (reduction);
-  \draw[->]					(porosity) -- (reduction);
-  \draw[->]					(current) -- (reduction);
-  \draw[->]					(pressure) -- (refining);
-  \draw[->]					(temp) -- (refining);
-  \draw[->]					(rotation) -- (refining);
+  \draw[-]					(Li2O) -- (reduction);
+  \draw[-]					(porosity) -- (reduction);
+  \draw[-]					(current) -- (reduction);
+  \draw[-]					(pressure) -- (refining);
+  \draw[-]					(temp) -- (refining);
+  \draw[-]					(rotation) -- (refining);
   \draw[->]					(refining) -- (fission);
   %\draw[->]					(refining)++(0.75,-0.5) -- ++(0,-1) -- ++(0.75,0) -| (winning);
   \draw[->]					(refining)++(-0.75,-0.5) -- ++(0,-2)(winning) node[near start] {U/TRU + salt};
