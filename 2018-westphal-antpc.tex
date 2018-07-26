@@ -24,6 +24,7 @@ $^*$gtw2@illinois.edu
 \newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
 \newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
 \newcommand{\Cycamore}{\textsc{Cycamore}\xspace}%
+
 \newcolumntype{c}{>{\hsize=.56\hsize}X}
 \newcolumntype{b}{>{\hsize=.7\hsize}X}
 \newcolumntype{s}{>{\hsize=.74\hsize}X}
@@ -35,23 +36,26 @@ $^*$gtw2@illinois.edu
 \usepackage[acronym,toc]{glossaries}
 \include{acros}
 \makeglossaries
-
+\glsunset{PyRe}
+\glsunset{TRU}
+\glsunset{LWR}
+\glsunset{SNM}
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 This work assesses system parameters that influence separation efficiency and 
-throughput of pyroprocessing facilities. We leverage these parameters to implement a customizable pyroprocessing facility \emph{archetype}, PyRe, for use with the Cyclus framework.
+throughput of pyroprocessing facilities. We leverage these parameters to implement a customizable pyroprocessing facility \emph{archetype}, \gls{PyRe}, for use with the Cyclus framework.
 This generic facility model will allow simulations to 
 quantify signatures and observables associated with various operational modes 
 and material throughputs for a variety of facility designs. Such quantification 
 can aid timely detection of material diversion. 
-This paper describes the PyRe facility archetype design, pyroprocessing flowsheets captured by the model, and simulation capabilities it enables. 
+This paper describes the \Glssymbol{PyRe} facility archetype design, pyroprocessing flowsheets captured by the model, and simulation capabilities it enables. 
 To analyze data retrieved from the model, we additionally propose a class for tracking and 
 observing signatures and observables which will be extensible for other 
 facility archetypes in the future.
 \end{abstract}
 \section{Introduction}
-The diversion of significant quantities of SNM from the nuclear fuel cycle is major non-proliferation 
+The diversion of significant quantities of \gls{SNM} from the nuclear fuel cycle is major non-proliferation 
 concern \cite{noauthor_iaea_2017}. These diversions must be detected in a timely manner using signatures and observables in 
 order to properly safegaurd the fuel cycle. Timely detection is critical in non-proliferation to discover these shadow fuel cycles
 before diverted material is further processed. Pyroprocessing is a used nuclear fuel separations technology for advanced reactors. 
@@ -80,12 +84,12 @@ pyroprocessing systems with observable waste: voloxidation, electroreduction, el
 \end{figure}
 
 Figure \ref{fig:flowchart} demonstrates the primary separations steps involved in a general pyroprocessing facility. Main process parameters are placed to the left of their respective subprocess. Boxes on the 
-right side of the processes contain the observable waste produced by each step that PyRe tracks. 
+right side of the processes contain the observable waste produced by each step that \gls{PyRe} tracks. 
 The explicit behavior of each main process is described below. 
 
 \subsection{Voloxidation}
 
-LWR fuel must be treated and separated before proceeding with electrolytic processes. Uranium dioxide heated to 
+\gls{LWR} fuel must be treated and separated before proceeding with electrolytic processes. Uranium dioxide heated to 
 500$^{\circ}$C is converted to $U_3O_8$ while noble gases, carbon, and tritium are collected to decay in storage. 
 Actinides are also converted to their stable oxide forms and a majority are removed \cite{flowsheet_1998,jubin_spent_2009}. 
 Heating uranium dioxide above 800$^{\circ}$C increases voloxidation throughput.
@@ -106,7 +110,7 @@ A current density between 100 and 500 mA/cm$^2$ is applied to the anode in a mol
 The electrolytic reduction process primarily results in diffusion of Cs, Ba and Sr, along with reduction and conversion of zirconium into metallic form \cite{choi_electrochemical_2015,flowsheet_1998}.
 Electroreduction can further improve its throughput by adding Li$_2$O as a catalyst; this catalyst also prevents dissolution 
 of the anode \cite{choi_electrochemical_2015}. Since Li$_2$O is used to speed up the reaction,
-the operators could add more oxide than reported to IAEA. More frequent shipments 
+the operators could add more oxide than reported to \gls{IAEA}. More frequent shipments 
 of lithium oxide can be tracked as an observable to match records.
 
 \begin{figure}[ht]
@@ -123,8 +127,9 @@ This stream has a considerable decay signature proportional to the efficiency an
 Once in metallic form, electrorefining electrochemically separates uranium and  for fuel fabrication.
 The uranium and salt mixture from reduction is fed into an anode basket suspended in a graphite cathode. 
 A LiCl-KCl eutectic is used as an electrolyte above 500$^{\circ}$C \cite{flowsheet_1998,lee_korean_2011}. 
-Uranium dissolves at the anode to recombine at the cathode as metallic uranium. 
-Waste transuranics (TRUs) and lanthanides are in a soluble chloride form  while fission products and cladding remain in the anode
+Uranium dissolves at the anode to recombine at the cathode as metallic uranium.
+\glsreset{TRU} 
+Waste \glspl{TRU} and lanthanides are in a soluble chloride form  while fission products and cladding remain in the anode
 basket. Finally, actinides and fission products are removed from the cladding electrochemically \cite{lee_korean_2011}.
 
 Lee et al. \cite{lee_advanced_2008} show decreasing system pressure improves removal efficiency. 
@@ -144,14 +149,14 @@ the vessel, improving separation efficiency and increasing throughput.
 \end{figure}
  
 The electrorefining process also produces a fission product waste stream which requires monitoring. 
-The following products are produced and tracked in PyRe at this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}. 
-Uranium and TRU product streams separated at this stage are sent to fuel fabrication, while the remaining salt is reformed as an oxidant and recirculated.
+The following products are produced and tracked in \gls{PyRe} at this step: Tc, Ag, Pd, Rh, Ru, Mo and Zr \cite{flowsheet_1998}. 
+Uranium and \gls{TRU} product streams separated at this stage are sent to fuel fabrication, while the remaining salt is reformed as an oxidant and recirculated.
 Separation efficiencies are taken after recirculation, and treated as a once-through cycle. Cyclus' time step
 is not detailed enough to benefit from analyzing intra-batch processes. Therefore, only end-state efficiencies are used rather than an explicit model.
 
 \subsection{Electrowinning}
 
-Molten salt containing TRUs from electrorefining is separated through electrowinning. This process separates trace uranium quantities, lanthanides and fission products. 
+Molten salt containing \glspl{TRU} from electrorefining is separated through electrowinning. This process separates trace uranium quantities, lanthanides and fission products. 
 At 500$^{\circ}$C there is approximately 99 wt\% reduction in actinides and lanthanides \cite{flowsheet_1998}. 
 Throughput also depends on material choice for the inert electrodes, impacting separation 
 efficiency \cite{koyama_development_2012}. A shroud surrounds the anode to provide a path for O$^{2-}$ ions to the anode and 
@@ -176,23 +181,23 @@ initial model of a simple \gls{PRIDE} facility.
 Users provide the separations archetype with a feed stream and facility efficiencies.  
 Each waste stream requires a material balance over voloxidation, electroreduction, electrorefining and electrowinning. Main 
 waste streams are metallic waste, ceramic waste from electrowinning and electroreduction, and vitrified waste. Vitrified 
-waste contains the majority of TRUs, Sr, and rare-earth elements. Elemental separation efficiencies are 
+waste contains the majority of \Glssymbol{TRU}s, Sr, and rare-earth elements. Elemental separation efficiencies are 
 determined through theoretical material balance determined by the NEA and Hermann et al \cite{flowsheet_1998,herrmann_separation_2010}. 
 The simple simulation using a separations facility was run to verify the table of efficiencies input to \Cyclus. A scenario was 
-created of one separations facility with a feed of five year cooled spent LWR 
+created of one separations facility with a feed of five year cooled spent \Gls{LWR} 
 fuel at a burn-up of 45 \gls{GWd} per \gls{MTIHM} to 
 match results seen in \cite{flowsheet_1998}.
 
 A pyroprocessing facility can be modeled with the separations archetype at low fidelity. 
-The goal for PyRe is to include facility configuration parameters and monitor variations in efficiencies to detect diversion. 
+The goal for \Gls{PyRe} is to include facility configuration parameters and provide the user with data to optimize detector placement.
+\Gls{PyRe} accomplishes this by performing detailed separations at each subprocess and compiling the resulting streams.
 Any material not separated by the four processes is categorized as leftover commodity, ensuring material conservation is maintained. 
 Unit tests and runtime checks will confirm material conservation. 
-Efficiencies also vary according to the feed stream resulting in different waste streams for LWR and FR fuels, for example. 
-Multiple material choices exist for anodes and cathodes as well as other design choices that require consideration. 
+Efficiencies also vary according to the feed stream resulting in different waste streams for \Gls{LWR} and FR fuels, for example. 
 
 \subsection{Parameters}
-Facility configuration parameters customize the pyroprocessing archetype. 
-Facility designs vary in multiple aspects which affect the throughputs and efficiencies of different waste streams. 
+Facility configuration parameters customize the pyroprocessing archetype and vary by design. 
+These pyroprocessing designs vary in multiple aspects which affect the throughputs and efficiencies of different waste streams. 
 Variables have been described above through material balance of each sub-process and their system parameters. 
 Table \ref{tab:params} consists of the  derived from the previously mentioned process parameters and material flow. 
 
@@ -241,7 +246,7 @@ the facility and indirect characteristics observables at distance. A broader cat
 throughput and batch size. Since throughput is a facility observable, 
 it is seen in a majority of the sub-processes. Reduction is limited by 
 batch size therefore reducing the throughput of proceeding steps to the 
-electrochemical process. The number of shipments and cars in the parking lot also serve as an indicator to excess work being done. Thermal imaging, further, can determine the operational status of the facility. 
+electrochemical process. The finished product and cars in the parking lot also serve as an indicator to excess work being done. Thermal imaging, further, can determine the operational status of the facility. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
