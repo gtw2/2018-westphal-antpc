@@ -1,27 +1,101 @@
 \begin{frame}
-  \frametitle{Cat Math: Part 1}
-  % a comment
-        \begin{align}
-                x &= y
-                \intertext{where}
-                x &= \mbox{cats}\\
-                y &= \mbox{peculiar}
-        \end{align}
+  \frametitle{Methodology}
+\begin{columns}
+	\begin{column}{.55\textwidth}
+		\begin{block}{How does PyRe work?} 
+			PyRe does the following with an input stream and facility configuration parameters: 
+			\begin{itemize}
+				\item Pass fuel to voloxidation.
+				\item Generate efficiencies from parameters.
+				\item Multiply stream by efficiency matrix.
+				\item Record stream compositions.
+				\item Repeat for each process.
+			\end{itemize}
+		\end{block}
+	\end{column}
+	\begin{column}{.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{cyclus}
+			\label{fig:cyclus}
+		\end{figure}
+	\end{column}
+\end{columns} 
 \end{frame}
 
 \begin{frame}
-\frametitle{Cat Math: Part 2}
-        Everything in Beamer is just like in \LaTeX.
-        Right down to the theorems.
-        \begin{theorem}[Pythagoras] 
-                $ a^2 + b^2 = c^2$
-        \end{theorem}
-        \begin{corollary}
-                $ x + y = y + x  $
-        \end{corollary}
-        \begin{proof}
-                $\omega +\phi = \epsilon $
-        \end{proof}
+	\frametitle{Cyclus}
+    \begin{block}{What is Cyclus?}
+    	Cyclus is a modular agent based fuel cycle simulator for tracking commodity transactions
+    	between facilities.
+    \end{block}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{cyclus-graph}
+	\end{figure}
+\end{frame}
 
+\begin{frame}
+\frametitle{Why Cyclus?}
+	Cyclus allows the construction of specific scenarios through the addition of archetypes. These archetypes are
+	modular and the transactions can be tracked.
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{cyclus-material-track}
+		\caption{Cyclus tracks material flow through the fuel cycle.}
+		\label{fig:tracking}
+	\end{figure}
+\end{frame}
 
+\begin{frame}
+\frametitle{Assumptions}
+\begin{columns}
+	\begin{column}{.45\textwidth}
+		\begin{block}{Cyclus Requirements} 
+			\begin{itemize}
+				\item Modular.
+				\item Time step $\geq$ 1 month
+				\item Streams must be in a
+				trade-able form.
+			\end{itemize}
+		\end{block}
+	\end{column}
+	\begin{column}{.55\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{flowchart}
+			\label{fig:cyclus}
+		\end{figure}
+	\end{column}
+\end{columns} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Subprocesses}
+\begin{columns}
+	\begin{column}{.5\textwidth}
+		\begin{figure} 
+			\centering
+			\includegraphics[width=0.9\linewidth]{volox}
+			\label{fig:volox}
+		\end{figure}
+		\begin{figure} 
+			\centering
+			\includegraphics[width=0.9\linewidth]{refining}
+			\label{fig:refining}
+		\end{figure}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\linewidth]{reduction}
+			\label{fig:reduction}
+		\end{figure}
+		\begin{figure} 
+			\centering
+			\includegraphics[width=0.9\linewidth]{winning}
+			\label{fig:winning}
+		\end{figure}
+	\end{column}
+\end{columns} 
 \end{frame}
