@@ -22,6 +22,24 @@
 
 \begin{frame}
 \frametitle{Diversion Algorithm}
-The first two questions can be answered through the addition of PyRe to Cyclus. However, to address the last we must 
-employ an algorithm to analyze small differences between multiple simulations.
+\begin{columns}
+	\begin{column}{.5\textwidth}
+	The first two questions can be answered through the addition of PyRe to Cyclus. However, to address the last we must 
+	employ an algorithm to analyze small differences between multiple simulations.
+
+	The following are being considered to provide 'online' diversion detection:
+	\begin{itemize}
+		\item Cumulative Sum (CUSUM)
+		\item Maximum likelihood
+	\end{itemize}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{cusum-example}
+		\caption{Example of a cumulative sum alarm from Basseville.}
+		\label{fig:timeseries-waste}
+		\end{figure}
+	\end{column}
+\end{columns} 
 \end{frame}
